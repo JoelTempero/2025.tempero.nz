@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Year of Building</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .scroll-wrapper {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    transform: scaleY(-1);
+  }
+  .scroll-wrapper::-webkit-scrollbar { display: none; }
+  
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    transform: scaleY(-1);
+    padding: 0;
+  }
+  
+  #hero, #sky {
+    min-height: 100vh;
+  }
+  
+  #hero {
+    background: transparent;
+    color: white;
+  }
+  #hero h1 {
+    font-size: 6rem;
+    margin: 0;
+    font-weight: 800;
+    color: white;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in 0.5s forwards;
+  }
+  #hero h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-top: 1rem;
+    color: white;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in 1.5s forwards;
+  }
+  
+  .scroll-hint {
+    margin-top: 3rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in 2.5s forwards, bounce 2s ease-in-out 3.5s infinite;
+    cursor: pointer;
+  }
+  
+  .scroll-hint svg {
+    width: 50px;
+    height: 50px;
+    stroke: white;
+    stroke-width: 2;
+    fill: none;
+  }
+  
+  .brick-layer {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 30px 15px;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+  
+  .brick-row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .brick-layer img {
+    height: 300px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  
+  .brick-layer.animate img {
+    animation: dropIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+  
+  .brick-layer.animate img:nth-child(1) { animation-delay: 0.1s; }
+  .brick-layer.animate img:nth-child(2) { animation-delay: 0.2s; }
+  .brick-layer.animate img:nth-child(3) { animation-delay: 0.3s; }
+  .brick-layer.animate img:nth-child(4) { animation-delay: 0.4s; }
+  .brick-layer.animate img:nth-child(5) { animation-delay: 0.5s; }
+  .brick-layer.animate img:nth-child(6) { animation-delay: 0.6s; }
+  .brick-layer.animate img:nth-child(7) { animation-delay: 0.7s; }
+  .brick-layer.animate img:nth-child(8) { animation-delay: 0.8s; }
+  .brick-layer.animate img:nth-child(9) { animation-delay: 0.9s; }
+  
+  .content {
+    background: transparent;
+    padding: 60px 2rem;
+    color: white;
+    opacity: 0;
+  }
+  
+  .content.animate {
+    animation: fadeIn 0.8s ease-in forwards;
+  }
+  
+  .content h2 {
+    font-size: 3rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+  }
+  
+  .content h3 {
+    font-size: 1.5rem;
+    margin: 0 0 2rem 0;
+    font-weight: 300;
+    opacity: 0.9;
+  }
+  
+  .content-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .content img {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .content iframe {
+    width: 560px;
+    height: 315px;
+    border-radius: 12px;
+    border: none;
+  }
+  
+  #sky {
+    background: transparent;
+    color: #222;
+    opacity: 0;
+  }
+  
+  #sky.animate {
+    animation: fadeIn 0.8s ease-in forwards;
+  }
+  
+  #sky h2 {
+    font-size: 3rem;
+    margin: 0 0 2rem 0;
+    font-weight: 600;
+  }
+  #sky .sun {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #ffd700, #ffed4e);
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.6);
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes dropIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    70% {
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+<div class="scroll-wrapper" id="scrollWrapper">
+  <section id="hero">
+    <h1>2025</h1>
+    <h2>The Year of Building</h2>
+    <div class="scroll-hint" onclick="scrollPage()">
+      <svg viewBox="0 0 24 24">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=1" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=2" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=3" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=4" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=5" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Daily Journalling & Emotional Checkins</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=10" alt="Daily Journalling">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=11" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=12" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=13" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=14" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=15" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=16" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>The Year in Pixels</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=20" alt="Year in Pixels">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=21" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=22" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=23" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=24" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=25" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Best Movie</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=30" alt="Best Movie">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=31" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=32" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=33" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=34" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=35" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=36" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Runner Ups</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=40" alt="Runner Ups">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=41" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=42" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=43" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=44" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=45" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Top TV</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=50" alt="Top TV">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=51" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=52" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=53" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=54" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=55" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=56" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=57" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Song of the Year</h2>
+    <h3>AWARDS SEASON by Bon Iver</h3>
+    <div class="content-images">
+      <img src="https://res.cloudinary.com/dtne8b2nzf/image/upload/v1704785531-iRowher_bhlh9s.jpg" alt="Song of the Year">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=61" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=62" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=63" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=64" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=65" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>All the close seconds</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=70" alt="Close Seconds">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=71" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=72" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=73" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=74" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=75" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Podcasts</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=80" alt="Podcasts">
+      <img src="https://picsum.photos/400/300?random=81" alt="Podcasts">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=82" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=83" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=84" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=85" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=86" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=87" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Books & Audiobooks</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=91" alt="Books">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=92" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=93" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=94" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=95" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=96" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=97" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Rachels Reading?</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=101" alt="Reading">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=102" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=103" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=104" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=105" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=106" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Tiktok Champions?</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=111" alt="Tiktok">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=112" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=113" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=114" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=115" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=116" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Best Game</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=121" alt="Best Game">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=122" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=123" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=124" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=125" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=126" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=127" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Runner Ups</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=131" alt="Game Runner Ups">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=132" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=133" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=134" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=135" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=136" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Tempero Creative</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=141" alt="Tempero Creative">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=142" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=143" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=144" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=145" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=146" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=147" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=148" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Animation Club</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=151" alt="Animation Club">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=152" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=153" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=154" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=155" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=156" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Technicolour.nz</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=161" alt="Technicolour">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=162" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=163" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=164" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=165" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=166" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Storybook.nz</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=171" alt="Storybook">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=172" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=173" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=174" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=175" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=176" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=177" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>The Grange Theatre</h2>
+    <div class="content-images">
+      <iframe src="https://www.youtube.com/embed/N3RRLykvds4" allowfullscreen></iframe>
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=181" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=182" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=183" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=184" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=185" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>48Hours Film Festival</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=190" alt="48Hours">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=191" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=192" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=193" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=194" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=195" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>bummer of the year?</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=200" alt="Bummer">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=201" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=202" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=203" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=204" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=205" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Sweet Treats</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=210" alt="Sweet Treats">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=211" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=212" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=213" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=214" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=215" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=216" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>New Kitchen!</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=220" alt="New Kitchen">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=221" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=222" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=223" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=224" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=225" alt="Memory">
+    </div>
+  </section>
+  
+  <section class="content" data-animate>
+    <h2>Next year we look forward to</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=230" alt="Looking Forward">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=231" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=232" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=233" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=234" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=235" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=236" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=237" alt="Memory">
+    </div>
+  </section>
+  
+  <section id="sky" data-animate>
+    <div class="sun"></div>
+    <h2>See you next year ☀️</h2>
+  </section>
+</div>
+
+<script>
+const scrollWrapper = document.getElementById('scrollWrapper');
+const animatableElements = document.querySelectorAll('[data-animate]');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate');
+    }
+  });
+}, {
+  threshold: 0.3
+});
+
+animatableElements.forEach(el => observer.observe(el));
+
+function updateBackgroundColor() {
+  const scrollHeight = scrollWrapper.scrollHeight - scrollWrapper.clientHeight;
+  const scrollTop = scrollWrapper.scrollTop;
+  const scrollPercent = scrollTop / scrollHeight;
+  
+  const darkColor = { r: 10, g: 22, b: 40 };
+  const lightColor = { r: 174, g: 224, b: 255 };
+  
+  const r = Math.round(darkColor.r + (lightColor.r - darkColor.r) * scrollPercent);
+  const g = Math.round(darkColor.g + (lightColor.g - darkColor.g) * scrollPercent);
+  const b = Math.round(darkColor.b + (lightColor.b - darkColor.b) * scrollPercent);
+  
+  const bgColor = `rgb(${r}, ${g}, ${b})`;
+  document.body.style.backgroundColor = bgColor;
+}
+
+function scrollPage() {
+  scrollWrapper.scrollBy({
+    top: 400,
+    behavior: 'smooth'
+  });
+}
+
+scrollWrapper.addEventListener('scroll', updateBackgroundColor);
+updateBackgroundColor();
+</script>
+</body>
+</html>
