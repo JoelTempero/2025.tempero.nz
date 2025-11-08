@@ -14,12 +14,51 @@
     font-family: 'Inter', sans-serif;
   }
   
+  /* Building container */
+  .building {
+    position: fixed;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .building::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.02) 0px,
+        transparent 1px,
+        transparent 40px,
+        rgba(255, 255, 255, 0.02) 41px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.01) 0px,
+        transparent 1px,
+        transparent 80px,
+        rgba(255, 255, 255, 0.01) 81px
+      );
+    pointer-events: none;
+  }
+  
   .scroll-wrapper {
     height: 100vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
     scrollbar-width: none;
     transform: scaleY(-1);
+    position: relative;
+    z-index: 2;
   }
   .scroll-wrapper::-webkit-scrollbar { display: none; }
   
@@ -32,6 +71,8 @@
     position: relative;
     transform: scaleY(-1);
     padding: 0;
+    max-width: 80%;
+    margin: 0 auto;
   }
   
   #hero, #sky {
@@ -166,16 +207,32 @@
     background: transparent;
     color: #222;
     opacity: 0;
+    max-width: 100%;
+    position: relative;
   }
   
   #sky.animate {
     animation: fadeIn 0.8s ease-in forwards;
   }
   
+  #sky .building-top {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: 40px;
+    background: #99B0BA;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
   #sky h2 {
     font-size: 9rem;
     margin: 0 0 2rem 0;
     font-weight: 600;
+    position: relative;
+    z-index: 2;
   }
   #sky .sun {
     width: 120px;
@@ -184,11 +241,29 @@
     border-radius: 50%;
     margin-bottom: 2rem;
     box-shadow: 0 0 60px rgba(255, 215, 0, 0.6);
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+  }
+  
+  #sky.animate .sun {
+    animation: sunRise 1.5s ease-out 0.5s forwards;
   }
   
   @keyframes fadeIn {
     to {
       opacity: 1;
+    }
+  }
+  
+  @keyframes sunRise {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
   
@@ -217,6 +292,7 @@
 </style>
 </head>
 <body>
+<div class="building" id="building"></div>
 <div class="scroll-wrapper" id="scrollWrapper">
   <section id="hero">
     <h1>2025</h1>
@@ -645,6 +721,7 @@
   </section>
   
   <section id="sky" data-animate>
+    <div class="building-top"></div>
     <div class="sun"></div>
     <h2>See you next year!</h2>
   </section>
@@ -652,6 +729,7 @@
 
 <script>
 const scrollWrapper = document.getElementById('scrollWrapper');
+const building = document.getElementById('building');
 const animatableElements = document.querySelectorAll('[data-animate]');
 
 const observer = new IntersectionObserver((entries) => {
@@ -666,20 +744,30 @@ const observer = new IntersectionObserver((entries) => {
 
 animatableElements.forEach(el => observer.observe(el));
 
-function updateBackgroundColor() {
+function updateColors() {
   const scrollHeight = scrollWrapper.scrollHeight - scrollWrapper.clientHeight;
   const scrollTop = scrollWrapper.scrollTop;
   const scrollPercent = scrollTop / scrollHeight;
   
-  const darkColor = { r: 10, g: 22, b: 40 };
-  const lightColor = { r: 174, g: 224, b: 255 };
+  // Background color (dark blue to light blue)
+  const bgDark = { r: 10, g: 22, b: 40 };
+  const bgLight = { r: 174, g: 224, b: 255 };
   
-  const r = Math.round(darkColor.r + (lightColor.r - darkColor.r) * scrollPercent);
-  const g = Math.round(darkColor.g + (lightColor.g - darkColor.g) * scrollPercent);
-  const b = Math.round(darkColor.b + (lightColor.b - darkColor.b) * scrollPercent);
+  const bgR = Math.round(bgDark.r + (bgLight.r - bgDark.r) * scrollPercent);
+  const bgG = Math.round(bgDark.g + (bgLight.g - bgDark.g) * scrollPercent);
+  const bgB = Math.round(bgDark.b + (bgLight.b - bgDark.b) * scrollPercent);
   
-  const bgColor = `rgb(${r}, ${g}, ${b})`;
-  document.body.style.backgroundColor = bgColor;
+  document.body.style.backgroundColor = `rgb(${bgR}, ${bgG}, ${bgB})`;
+  
+  // Building color (dark blue to #99B0BA)
+  const buildDark = { r: 10, g: 22, b: 40 };
+  const buildLight = { r: 153, g: 176, b: 186 }; // #99B0BA
+  
+  const buildR = Math.round(buildDark.r + (buildLight.r - buildDark.r) * scrollPercent);
+  const buildG = Math.round(buildDark.g + (buildLight.g - buildDark.g) * scrollPercent);
+  const buildB = Math.round(buildDark.b + (buildLight.b - buildDark.b) * scrollPercent);
+  
+  building.style.backgroundColor = `rgb(${buildR}, ${buildG}, ${buildB})`;
 }
 
 function scrollPage() {
@@ -689,8 +777,8 @@ function scrollPage() {
   });
 }
 
-scrollWrapper.addEventListener('scroll', updateBackgroundColor);
-updateBackgroundColor();
+scrollWrapper.addEventListener('scroll', updateColors);
+updateColors();
 </script>
 </body>
 </html>
