@@ -104,20 +104,42 @@
   }
   
   .brick-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 15px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     position: relative;
     z-index: 1;
-    max-width: 80vw;
-    padding: 0 10%;
+    width: 100%;
+    max-width: calc(80vw - 40px);
+    margin: 0 auto;
+  }
+  
+  .brick-row img:nth-child(n+6) {
+    grid-column: span 1;
+  }
+  
+  .brick-row img:nth-child(6) {
+    grid-column: 1 / 2;
+  }
+  
+  .brick-row img:nth-child(7) {
+    grid-column: 2 / 3;
+  }
+  
+  .brick-row img:nth-child(8) {
+    grid-column: 3 / 4;
+  }
+  
+  .brick-row img:nth-child(9) {
+    grid-column: 4 / 5;
   }
   
   .brick-layer img {
-    height: 300px;
-    width: 400px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
     object-fit: cover;
     border-radius: 8px;
     opacity: 0;
@@ -223,7 +245,7 @@
   
   #sky .building-top {
     position: fixed;
-    bottom: 0;
+    bottom: -1px;
     left: 50%;
     transform: translateX(-50%);
     width: 80vw;
@@ -316,6 +338,10 @@
       <img src="https://picsum.photos/400/300?random=3" alt="Memory">
       <img src="https://picsum.photos/400/300?random=4" alt="Memory">
       <img src="https://picsum.photos/400/300?random=5" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=6" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=7" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=8" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=9" alt="Memory">
     </div>
   </section>
   
@@ -334,6 +360,9 @@
       <img src="https://picsum.photos/400/300?random=14" alt="Memory">
       <img src="https://picsum.photos/400/300?random=15" alt="Memory">
       <img src="https://picsum.photos/400/300?random=16" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=17" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=18" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=19" alt="Memory">
     </div>
   </section>
   
@@ -351,6 +380,10 @@
       <img src="https://picsum.photos/400/300?random=23" alt="Memory">
       <img src="https://picsum.photos/400/300?random=24" alt="Memory">
       <img src="https://picsum.photos/400/300?random=25" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=26" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=27" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=28" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=29" alt="Memory">
     </div>
   </section>
   
@@ -369,6 +402,9 @@
       <img src="https://picsum.photos/400/300?random=34" alt="Memory">
       <img src="https://picsum.photos/400/300?random=35" alt="Memory">
       <img src="https://picsum.photos/400/300?random=36" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=37" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=38" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=39" alt="Memory">
     </div>
   </section>
   
@@ -386,6 +422,10 @@
       <img src="https://picsum.photos/400/300?random=43" alt="Memory">
       <img src="https://picsum.photos/400/300?random=44" alt="Memory">
       <img src="https://picsum.photos/400/300?random=45" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=46" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=47" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=48" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=49" alt="Memory">
     </div>
   </section>
   
@@ -405,6 +445,8 @@
       <img src="https://picsum.photos/400/300?random=55" alt="Memory">
       <img src="https://picsum.photos/400/300?random=56" alt="Memory">
       <img src="https://picsum.photos/400/300?random=57" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=58" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=59" alt="Memory">
     </div>
   </section>
   
@@ -423,6 +465,10 @@
       <img src="https://picsum.photos/400/300?random=63" alt="Memory">
       <img src="https://picsum.photos/400/300?random=64" alt="Memory">
       <img src="https://picsum.photos/400/300?random=65" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=66" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=67" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=68" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=69" alt="Memory">
     </div>
   </section>
   
@@ -440,6 +486,10 @@
       <img src="https://picsum.photos/400/300?random=73" alt="Memory">
       <img src="https://picsum.photos/400/300?random=74" alt="Memory">
       <img src="https://picsum.photos/400/300?random=75" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=76" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=77" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=78" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=79" alt="Memory">
     </div>
   </section>
   
@@ -453,12 +503,15 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=81" alt="Memory">
       <img src="https://picsum.photos/400/300?random=82" alt="Memory">
       <img src="https://picsum.photos/400/300?random=83" alt="Memory">
       <img src="https://picsum.photos/400/300?random=84" alt="Memory">
       <img src="https://picsum.photos/400/300?random=85" alt="Memory">
       <img src="https://picsum.photos/400/300?random=86" alt="Memory">
       <img src="https://picsum.photos/400/300?random=87" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=88" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=89" alt="Memory">
     </div>
   </section>
   
@@ -471,12 +524,15 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=91" alt="Memory">
       <img src="https://picsum.photos/400/300?random=92" alt="Memory">
       <img src="https://picsum.photos/400/300?random=93" alt="Memory">
       <img src="https://picsum.photos/400/300?random=94" alt="Memory">
       <img src="https://picsum.photos/400/300?random=95" alt="Memory">
       <img src="https://picsum.photos/400/300?random=96" alt="Memory">
       <img src="https://picsum.photos/400/300?random=97" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=98" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=99" alt="Memory">
     </div>
   </section>
   
@@ -489,11 +545,15 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=101" alt="Memory">
       <img src="https://picsum.photos/400/300?random=102" alt="Memory">
       <img src="https://picsum.photos/400/300?random=103" alt="Memory">
       <img src="https://picsum.photos/400/300?random=104" alt="Memory">
       <img src="https://picsum.photos/400/300?random=105" alt="Memory">
       <img src="https://picsum.photos/400/300?random=106" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=107" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=108" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=109" alt="Memory">
     </div>
   </section>
   
@@ -506,11 +566,15 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=111" alt="Memory">
       <img src="https://picsum.photos/400/300?random=112" alt="Memory">
       <img src="https://picsum.photos/400/300?random=113" alt="Memory">
       <img src="https://picsum.photos/400/300?random=114" alt="Memory">
       <img src="https://picsum.photos/400/300?random=115" alt="Memory">
       <img src="https://picsum.photos/400/300?random=116" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=117" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=118" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=119" alt="Memory">
     </div>
   </section>
   
@@ -523,12 +587,15 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=121" alt="Memory">
       <img src="https://picsum.photos/400/300?random=122" alt="Memory">
       <img src="https://picsum.photos/400/300?random=123" alt="Memory">
       <img src="https://picsum.photos/400/300?random=124" alt="Memory">
       <img src="https://picsum.photos/400/300?random=125" alt="Memory">
       <img src="https://picsum.photos/400/300?random=126" alt="Memory">
       <img src="https://picsum.photos/400/300?random=127" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=128" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=129" alt="Memory">
     </div>
   </section>
   
@@ -541,11 +608,15 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=131" alt="Memory">
       <img src="https://picsum.photos/400/300?random=132" alt="Memory">
       <img src="https://picsum.photos/400/300?random=133" alt="Memory">
       <img src="https://picsum.photos/400/300?random=134" alt="Memory">
       <img src="https://picsum.photos/400/300?random=135" alt="Memory">
       <img src="https://picsum.photos/400/300?random=136" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=137" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=138" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=139" alt="Memory">
     </div>
   </section>
   
@@ -558,6 +629,7 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=141" alt="Memory">
       <img src="https://picsum.photos/400/300?random=142" alt="Memory">
       <img src="https://picsum.photos/400/300?random=143" alt="Memory">
       <img src="https://picsum.photos/400/300?random=144" alt="Memory">
@@ -565,6 +637,7 @@
       <img src="https://picsum.photos/400/300?random=146" alt="Memory">
       <img src="https://picsum.photos/400/300?random=147" alt="Memory">
       <img src="https://picsum.photos/400/300?random=148" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=149" alt="Memory">
     </div>
   </section>
   
@@ -577,11 +650,15 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=151" alt="Memory">
       <img src="https://picsum.photos/400/300?random=152" alt="Memory">
       <img src="https://picsum.photos/400/300?random=153" alt="Memory">
       <img src="https://picsum.photos/400/300?random=154" alt="Memory">
       <img src="https://picsum.photos/400/300?random=155" alt="Memory">
       <img src="https://picsum.photos/400/300?random=156" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=157" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=158" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=159" alt="Memory">
     </div>
   </section>
   
@@ -594,11 +671,15 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=161" alt="Memory">
       <img src="https://picsum.photos/400/300?random=162" alt="Memory">
       <img src="https://picsum.photos/400/300?random=163" alt="Memory">
       <img src="https://picsum.photos/400/300?random=164" alt="Memory">
       <img src="https://picsum.photos/400/300?random=165" alt="Memory">
       <img src="https://picsum.photos/400/300?random=166" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=167" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=168" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=169" alt="Memory">
     </div>
   </section>
   
@@ -611,12 +692,15 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=171" alt="Memory">
       <img src="https://picsum.photos/400/300?random=172" alt="Memory">
       <img src="https://picsum.photos/400/300?random=173" alt="Memory">
       <img src="https://picsum.photos/400/300?random=174" alt="Memory">
       <img src="https://picsum.photos/400/300?random=175" alt="Memory">
       <img src="https://picsum.photos/400/300?random=176" alt="Memory">
       <img src="https://picsum.photos/400/300?random=177" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=178" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=179" alt="Memory">
     </div>
   </section>
   
@@ -634,6 +718,10 @@
       <img src="https://picsum.photos/400/300?random=183" alt="Memory">
       <img src="https://picsum.photos/400/300?random=184" alt="Memory">
       <img src="https://picsum.photos/400/300?random=185" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=186" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=187" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=188" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=189" alt="Memory">
     </div>
   </section>
   
@@ -651,6 +739,10 @@
       <img src="https://picsum.photos/400/300?random=193" alt="Memory">
       <img src="https://picsum.photos/400/300?random=194" alt="Memory">
       <img src="https://picsum.photos/400/300?random=195" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=196" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=197" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=198" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=199" alt="Memory">
     </div>
   </section>
   
@@ -668,6 +760,10 @@
       <img src="https://picsum.photos/400/300?random=203" alt="Memory">
       <img src="https://picsum.photos/400/300?random=204" alt="Memory">
       <img src="https://picsum.photos/400/300?random=205" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=206" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=207" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=208" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=209" alt="Memory">
     </div>
   </section>
   
@@ -686,6 +782,9 @@
       <img src="https://picsum.photos/400/300?random=214" alt="Memory">
       <img src="https://picsum.photos/400/300?random=215" alt="Memory">
       <img src="https://picsum.photos/400/300?random=216" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=217" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=218" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=219" alt="Memory">
     </div>
   </section>
   
@@ -703,6 +802,10 @@
       <img src="https://picsum.photos/400/300?random=223" alt="Memory">
       <img src="https://picsum.photos/400/300?random=224" alt="Memory">
       <img src="https://picsum.photos/400/300?random=225" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=226" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=227" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=228" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=229" alt="Memory">
     </div>
   </section>
   
@@ -722,6 +825,8 @@
       <img src="https://picsum.photos/400/300?random=235" alt="Memory">
       <img src="https://picsum.photos/400/300?random=236" alt="Memory">
       <img src="https://picsum.photos/400/300?random=237" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=238" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=239" alt="Memory">
     </div>
   </section>
   
