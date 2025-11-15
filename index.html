@@ -14,43 +14,6 @@
     font-family: 'Inter', sans-serif;
   }
   
-  /* Building container */
-  .building {
-    position: fixed;
-    top: 0;
-    left: 10%;
-    width: 80%;
-    height: 100vh;
-    z-index: 1;
-    pointer-events: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .building::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      repeating-linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.02) 0px,
-        transparent 1px,
-        transparent 40px,
-        rgba(255, 255, 255, 0.02) 41px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.01) 0px,
-        transparent 1px,
-        transparent 80px,
-        rgba(255, 255, 255, 0.01) 81px
-      );
-    pointer-events: none;
-  }
-  
   .scroll-wrapper {
     height: 100vh;
     overflow-y: scroll;
@@ -58,7 +21,6 @@
     scrollbar-width: none;
     transform: scaleY(-1);
     position: relative;
-    z-index: 2;
   }
   .scroll-wrapper::-webkit-scrollbar { display: none; }
   
@@ -71,7 +33,7 @@
     position: relative;
     transform: scaleY(-1);
     padding: 0;
-    max-width: 80%;
+    max-width: 64%;
     margin: 0 auto;
   }
   
@@ -124,6 +86,19 @@
     align-items: center;
     justify-content: center;
     background: transparent;
+    position: relative;
+  }
+  
+  .brick-layer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    background-color: var(--building-color, rgb(10, 22, 40));
+    z-index: -1;
+    transition: background-color 0.3s ease;
   }
   
   .brick-row {
@@ -132,6 +107,8 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
   }
   
   .brick-layer img {
@@ -139,8 +116,8 @@
     width: 400px;
     object-fit: cover;
     border-radius: 8px;
-    opacity: 0;
-    transform: translateY(-200px);
+    opacity: 1;
+    transform: translateY(0);
   }
   
   .brick-layer.animate img {
@@ -161,7 +138,20 @@
     background: transparent;
     padding: 60px 2rem;
     color: white;
-    opacity: 0;
+    opacity: 1;
+    position: relative;
+  }
+  
+  .content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    background-color: var(--building-color, rgb(10, 22, 40));
+    z-index: -1;
+    transition: background-color 0.3s ease;
   }
   
   .content.animate {
@@ -209,6 +199,7 @@
     opacity: 0;
     max-width: 100%;
     position: relative;
+    z-index: 4;
   }
   
   #sky.animate {
@@ -216,15 +207,15 @@
   }
   
   #sky .building-top {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 80vw;
     height: 40px;
-    background: #99B0BA;
+    background-color: var(--building-color, #99B0BA);
     border-radius: 20px 20px 0 0;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 10;
   }
   
   #sky h2 {
@@ -232,7 +223,7 @@
     margin: 0 0 2rem 0;
     font-weight: 600;
     position: relative;
-    z-index: 2;
+    z-index: 5;
   }
   #sky .sun {
     width: 120px;
@@ -242,7 +233,7 @@
     margin-bottom: 2rem;
     box-shadow: 0 0 60px rgba(255, 215, 0, 0.6);
     position: relative;
-    z-index: 1;
+    z-index: 5;
     opacity: 0;
   }
   
@@ -292,7 +283,6 @@
 </style>
 </head>
 <body>
-<div class="building" id="building"></div>
 <div class="scroll-wrapper" id="scrollWrapper">
   <section id="hero">
     <h1>2025</h1>
@@ -729,7 +719,6 @@
 
 <script>
 const scrollWrapper = document.getElementById('scrollWrapper');
-const building = document.getElementById('building');
 const animatableElements = document.querySelectorAll('[data-animate]');
 
 const observer = new IntersectionObserver((entries) => {
@@ -767,7 +756,7 @@ function updateColors() {
   const buildG = Math.round(buildDark.g + (buildLight.g - buildDark.g) * scrollPercent);
   const buildB = Math.round(buildDark.b + (buildLight.b - buildDark.b) * scrollPercent);
   
-  building.style.backgroundColor = `rgb(${buildR}, ${buildG}, ${buildB})`;
+  document.documentElement.style.setProperty('--building-color', `rgb(${buildR}, ${buildG}, ${buildB})`);
 }
 
 function scrollPage() {
