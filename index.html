@@ -210,13 +210,17 @@
   
   .content h2,
   .content h3,
-  .content-images {
+  .content-images,
+  .songs-grid,
+  .video-grid {
     opacity: 0;
   }
   
   .content.animate h2,
   .content.animate h3,
-  .content.animate .content-images {
+  .content.animate .content-images,
+  .content.animate .songs-grid,
+  .content.animate .video-grid {
     animation: fadeIn 0.8s ease-in forwards;
   }
   
@@ -245,18 +249,45 @@
   
   .songs-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     max-width: calc(80vw - 40px);
     margin: 0 auto;
   }
   
-  .songs-grid img {
+  .song-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .song-item img {
     width: 100%;
     height: auto;
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .song-item h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: white;
+  }
+  
+  .song-item p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .song-of-year img {
+    width: 560px;
+    max-width: 90%;
   }
   
   .video-grid {
@@ -267,7 +298,20 @@
     margin: 0 auto;
   }
   
-  .video-grid iframe {
+  .video-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .video-item h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    color: white;
+  }
+  
+  .video-grid iframe,
+  .video-item iframe {
     width: 100%;
     aspect-ratio: 16/9;
     border-radius: 12px;
@@ -275,7 +319,7 @@
   }
   
   .content img {
-    width: 800px;
+    width: 1200px;
     max-width: 100%;
     height: auto;
     object-fit: contain;
@@ -284,8 +328,9 @@
   }
   
   .content iframe {
-    width: 1120px;
-    height: 630px;
+    width: 896px;
+    max-width: 90%;
+    height: 504px;
     border-radius: 12px;
     border: none;
   }
@@ -513,7 +558,7 @@
   <section class="content" data-animate>
     <h2>Song of the Year</h2>
     <h3>AWARDS SEASON by Bon Iver</h3>
-    <div class="content-images">
+    <div class="content-images song-of-year">
       <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438613/BonIver_j0no0f.png" alt="Song of the Year" crossorigin="anonymous">
     </div>
   </section>
@@ -535,21 +580,81 @@
   <section class="content" data-animate>
     <h2>All the close seconds</h2>
     <div class="songs-grid">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438615/NothernAttitude_sp7g3x.png" alt="Northern Attitude - Noah Kahan & Hozier" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438615/JonBellion_qrdexm.png" alt="WHY - John Bellion" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438615/SilentMovie_dgqlmy.png" alt="Silent Movie - Strutman Lane" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438615/JonBellion_qrdexm.png" alt="HOROSCOPE - Jon Bellion" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438614/TOP_jmqtnx.png" alt="Drum Show - Twenty One Pilots" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438614/HumanHappens_js008u.png" alt="Human Happens - Magdalena Bay" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438613/BonIver_j0no0f.png" alt="Everything is Peaceful Love - Bon Iver" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438614/Bunnies_lyvhwz.png" alt="Bunnies - Oliver Richman" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438613/8Bit_dwkjib.png" alt="Wii Sports - The 8-bit Band" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438613/AJR_shwhdm.png" alt="The DJ is Crying for Help - AJR" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438616/StardewConcert_dkmty6.png" alt="Season Suite (Summer) - Stardew Valley in Concert" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438615/Noise_zfg8ty.png" alt="To Noise Making - Hozier" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438614/DarrenCriss_wsu8p7.png" alt="Dreamed a Dream - Darren Criss" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438616/OuterWildsSuite_m29f7y.png" alt="Outer Wilds Suite - StereoNauti" crossorigin="anonymous">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438613/DragPath_skdjju.png" alt="Drag Path - Twenty One Pilots" crossorigin="anonymous">
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438615/NothernAttitude_sp7g3x.png" alt="Northern Attitude" crossorigin="anonymous">
+        <h4>Northen Attitude</h4>
+        <p>Noah Kahan & Hozier</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438615/JonBellion_qrdexm.png" alt="WHY" crossorigin="anonymous">
+        <h4>WHY</h4>
+        <p>John Bellion</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438615/SilentMovie_dgqlmy.png" alt="Silent Movie" crossorigin="anonymous">
+        <h4>Silent Movie</h4>
+        <p>Strutman Lane</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438615/JonBellion_qrdexm.png" alt="HOROSCOPE" crossorigin="anonymous">
+        <h4>HOROSCOPE</h4>
+        <p>Jon Bellion</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438614/TOP_jmqtnx.png" alt="Drum Show" crossorigin="anonymous">
+        <h4>Drum Show</h4>
+        <p>Twenty One Pilots</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438614/HumanHappens_js008u.png" alt="Human Happens" crossorigin="anonymous">
+        <h4>Human Happens</h4>
+        <p>Magdalena Bay</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438613/BonIver_j0no0f.png" alt="Everything is Peaceful Love" crossorigin="anonymous">
+        <h4>Everything is Peaceful Love</h4>
+        <p>Bon Iver</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438614/Bunnies_lyvhwz.png" alt="Bunnies" crossorigin="anonymous">
+        <h4>Bunnies</h4>
+        <p>Oliver Richman</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438613/8Bit_dwkjib.png" alt="Wii Sports" crossorigin="anonymous">
+        <h4>Wii Sports</h4>
+        <p>The 8-bit Band</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438613/AJR_shwhdm.png" alt="The DJ is Crying for Help" crossorigin="anonymous">
+        <h4>The DJ is Crying for Help</h4>
+        <p>AJR</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438616/StardewConcert_dkmty6.png" alt="Season Suite (Summer)" crossorigin="anonymous">
+        <h4>Season Suite (Summer)</h4>
+        <p>Stardew Valley in Concert</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438615/Noise_zfg8ty.png" alt="To Noise Making" crossorigin="anonymous">
+        <h4>To Noise Making</h4>
+        <p>Hozier</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438614/DarrenCriss_wsu8p7.png" alt="Dreamed a Dream" crossorigin="anonymous">
+        <h4>Dreamed a Dream</h4>
+        <p>Darren Criss</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438616/OuterWildsSuite_m29f7y.png" alt="Outer Wilds Suite" crossorigin="anonymous">
+        <h4>Outer Wilds Suite</h4>
+        <p>StereoNauti</p>
+      </div>
+      <div class="song-item">
+        <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763438613/DragPath_skdjju.png" alt="Drag Path" crossorigin="anonymous">
+        <h4>Drag Path</h4>
+        <p>Twenty One Pilots</p>
+      </div>
     </div>
   </section>
   
@@ -690,12 +795,29 @@
   <section class="content" data-animate>
     <h2>Tempero Creative</h2>
     <div class="video-grid">
-      <iframe src="https://www.youtube.com/embed/IKUMRVsxjIQ" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://www.youtube.com/embed/LS6JOx-M6ho" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://www.youtube.com/embed/tanyD_yF5_s" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://www.youtube.com/embed/-xzE6TPqpt4" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://player.vimeo.com/video/1077797233" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://www.youtube.com/embed/SJBzWBqrzEs" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      <div class="video-item">
+        <h4>What if everyone got a chair?</h4>
+        <iframe src="https://www.youtube.com/embed/IKUMRVsxjIQ" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>Favourite Photo of my Wife</h4>
+        <iframe src="https://www.youtube.com/embed/LS6JOx-M6ho" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>Rating Disney Rides</h4>
+        <iframe src="https://www.youtube.com/embed/tanyD_yF5_s" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>Editfest</h4>
+        <iframe src="https://www.youtube.com/embed/-xzE6TPqpt4" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>OuterWilds Race to the Eye</h4>
+        <iframe src="https://player.vimeo.com/video/1077797233" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/SJBzWBqrzEs" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
     </div>
   </section>
   
@@ -737,14 +859,38 @@
   <section class="content" data-animate>
     <h2>Technicolour.nz</h2>
     <div class="video-grid">
-      <iframe src="https://player.vimeo.com/video/1132286636" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://player.vimeo.com/video/1074992987" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://www.youtube.com/embed/kQZbWIhQPxE" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://www.youtube.com/embed/OOtdVa7SBho" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://www.youtube.com/embed/y8U5uT1ktO8" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://www.youtube.com/embed/nWYrPgQrao0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://www.youtube.com/embed/y8U5uT1ktO8" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://www.youtube.com/embed/nWYrPgQrao0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      <div class="video-item">
+        <h4>VMC</h4>
+        <iframe src="https://player.vimeo.com/video/1132286636" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>Colour Your Day</h4>
+        <iframe src="https://player.vimeo.com/video/1074992987" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>Sea Sounds</h4>
+        <iframe src="https://www.youtube.com/embed/kQZbWIhQPxE" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>Eastercamp</h4>
+        <iframe src="https://www.youtube.com/embed/OOtdVa7SBho" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>MGS Formal</h4>
+        <iframe src="https://www.youtube.com/embed/y8U5uT1ktO8" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>Good News Project</h4>
+        <iframe src="https://www.youtube.com/embed/nWYrPgQrao0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>Kath Bee I Know You</h4>
+        <iframe src="https://www.youtube.com/embed/y8U5uT1ktO8" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>LFBIT</h4>
+        <iframe src="https://www.youtube.com/embed/nWYrPgQrao0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
     </div>
   </section>
   
@@ -786,8 +932,14 @@
   <section class="content" data-animate>
     <h2>The Grange Theatre</h2>
     <div class="video-grid">
-      <iframe src="https://www.youtube.com/embed/sNf9LIyXw4s" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      <iframe src="https://www.youtube.com/embed/K8iWSDupx0k" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      <div class="video-item">
+        <h4>Mary Poppins</h4>
+        <iframe src="https://www.youtube.com/embed/sNf9LIyXw4s" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>"In The Heights" Parody</h4>
+        <iframe src="https://www.youtube.com/embed/K8iWSDupx0k" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
     </div>
   </section>
   
