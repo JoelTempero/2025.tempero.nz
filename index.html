@@ -309,8 +309,8 @@
   }
   
   .song-of-year img {
-    width: 90px;
-    max-width: 90%;
+    width: 200px !important;
+    max-width: 90% !important;
   }
   
   .video-grid {
@@ -320,12 +320,14 @@
     max-width: calc(80vw - 40px);
     margin: 0 auto;
     justify-items: center;
+    align-items: start;
   }
   
   .video-item {
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: center;
   }
   
   .video-item h4 {
@@ -334,6 +336,7 @@
     margin: 0 0 10px 0;
     color: white;
     text-align: center;
+    width: 100%;
   }
   
   .video-grid iframe,
@@ -344,18 +347,20 @@
     border: none;
   }
   
-  .instagram-grid {
+  .instagram-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     max-width: calc(80vw - 40px);
-    margin: 0 auto 20px auto;
+    margin: 20px auto;
     justify-items: center;
   }
   
-  .instagram-grid .instagram-media {
-    max-width: 100% !important;
-    min-width: 0 !important;
+  .instagram-container iframe {
+    width: 100%;
+    min-height: 600px;
+    border: none;
+    border-radius: 12px;
   }
   
   .content img {
@@ -810,26 +815,18 @@
       </div>
       <div class="video-item">
         <h4>Project Link</h4>
-        <iframe src="https://player.vimeo.com/video/1077797233" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0" style="aspect-ratio: 16/9;"></iframe>
+        <iframe src="https://player.vimeo.com/video/1077797233" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
       <div class="video-item">
         <h4>OuterWilds Race to the Eye</h4>
         <iframe src="https://www.youtube.com/embed/SJBzWBqrzEs" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
     </div>
-    <div class="video-grid" style="margin-top: 40px;">
-      <div class="video-item">
-        <iframe src="https://www.instagram.com/reel/DNFv2-EvFMW/embed" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <iframe src="https://www.instagram.com/reel/DOkLCdUCHtv/embed" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <iframe src="https://www.instagram.com/reel/DM1VoNIvHVj/embed" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <iframe src="https://www.instagram.com/reel/DQNutYYk_QN/embed" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
+    <div class="instagram-container">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DNFv2-EvFMW/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DOkLCdUCHtv/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DM1VoNIvHVj/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DQNutYYk_QN/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
     </div>
   </section>
   
@@ -1015,25 +1012,13 @@
   
   <section class="content" data-animate>
     <h2>Sidon-gram!</h2>
-    <div class="video-grid" style="grid-template-columns: repeat(3, 1fr);">
-      <div class="video-item">
-        <iframe src="https://www.instagram.com/reel/DM-JgI7hHG_/embed" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <iframe src="https://www.instagram.com/reel/DM2YaUQhddj/embed" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <iframe src="https://www.instagram.com/reel/DPvoNXvgdaB/embed" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <iframe src="https://www.instagram.com/reel/DQqMDB8gQ6f/embed" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <iframe src="https://www.instagram.com/reel/DJvq-Z4hUFX/embed" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <iframe src="https://www.instagram.com/reel/DKqwKQBBVrq/embed" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
+    <div class="instagram-container">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DM-JgI7hHG_/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DM2YaUQhddj/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DPvoNXvgdaB/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DQqMDB8gQ6f/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DJvq-Z4hUFX/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DKqwKQBBVrq/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
     </div>
   </section>
   
@@ -1121,6 +1106,7 @@
   </section>
 </div>
 
+<script async src="//www.instagram.com/embed.js"></script>
 <script>
 const scrollWrapper = document.getElementById('scrollWrapper');
 const animatableElements = document.querySelectorAll('[data-animate]');
