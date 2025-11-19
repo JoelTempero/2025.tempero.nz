@@ -217,7 +217,8 @@
   .content h3,
   .content-images,
   .songs-grid,
-  .video-grid {
+  .video-grid,
+  .instagram-grid {
     opacity: 0;
   }
   
@@ -225,7 +226,8 @@
   .content.animate h3,
   .content.animate .content-images,
   .content.animate .songs-grid,
-  .content.animate .video-grid {
+  .content.animate .video-grid,
+  .content.animate .instagram-grid {
     animation: fadeIn 0.8s ease-in forwards;
   }
   
@@ -245,12 +247,6 @@
   }
   
   .content {
-    background: transparent;
-    padding: 60px 0;
-    color: white;
-    position: relative;
-    width: 100%;
-    margin-top: -2px;
     display: flex;
     flex-direction: column;
   }
@@ -258,6 +254,7 @@
   .content-images,
   .songs-grid,
   .video-grid,
+  .instagram-grid,
   .song-of-year {
     order: 0;
   }
@@ -344,6 +341,20 @@
     aspect-ratio: 16/9;
     border-radius: 12px;
     border: none;
+  }
+  
+  .instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: calc(80vw - 40px);
+    margin: 0 auto 20px auto;
+    justify-items: center;
+  }
+  
+  .instagram-grid .instagram-media {
+    max-width: 100% !important;
+    min-width: 0 !important;
   }
   
   .content img {
@@ -682,7 +693,7 @@
   <section class="content" data-animate>
     <h2>Podcasts</h2>
     <div class="content-images">
-      <img src="https://picsum.photos/400/300?random=80" alt="Podcasts">
+      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763527403/2025podcasts_aixrfo.jpg" alt="Podcasts">
     </div>
   </section>
   
@@ -743,23 +754,9 @@
   </section>
   
   <section class="content" data-animate>
-    <h2>Tiktok Champions?</h2>
+    <h2>Runner Ups</h2>
     <div class="content-images">
-      <img src="https://picsum.photos/400/300?random=111" alt="Tiktok">
-    </div>
-  </section>
-  
-  <section class="brick-layer" data-animate>
-    <div class="brick-row">
-      <img src="https://picsum.photos/400/300?random=111" alt="Memory">
-      <img src="https://picsum.photos/400/300?random=112" alt="Memory">
-      <img src="https://picsum.photos/400/300?random=113" alt="Memory">
-      <img src="https://picsum.photos/400/300?random=114" alt="Memory">
-      <img src="https://picsum.photos/400/300?random=115" alt="Memory">
-      <img src="https://picsum.photos/400/300?random=116" alt="Memory">
-      <img src="https://picsum.photos/400/300?random=117" alt="Memory">
-      <img src="https://picsum.photos/400/300?random=118" alt="Memory">
-      <img src="https://picsum.photos/400/300?random=119" alt="Memory">
+      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763282922/RunnerUpGames_brbucr.png" alt="Game Runner Ups" crossorigin="anonymous">
     </div>
   </section>
   
@@ -767,13 +764,6 @@
     <h2>Best Game</h2>
     <div class="content-images">
       <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763281864/BestGame_qua9uy.png" alt="Best Game" crossorigin="anonymous">
-    </div>
-  </section>
-  
-  <section class="content" data-animate>
-    <h2>Runner Ups</h2>
-    <div class="content-images">
-      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763282922/RunnerUpGames_brbucr.png" alt="Game Runner Ups" crossorigin="anonymous">
     </div>
   </section>
   
@@ -825,6 +815,12 @@
         <iframe src="https://www.youtube.com/embed/SJBzWBqrzEs" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
     </div>
+    <div class="instagram-grid">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DNFv2-EvFMW/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DOkLCdUCHtv/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DM1VoNIvHVj/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQNutYYk_QN/" data-instgrm-version="14"></blockquote>
+    </div>
   </section>
   
   <section class="brick-layer" data-animate>
@@ -844,7 +840,7 @@
   <section class="content" data-animate>
     <h2>Animation Club</h2>
     <div class="content-images">
-      <img src="https://picsum.photos/400/300?random=151" alt="Animation Club">
+      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763528125/Animation_Club_ncfrqk.jpg" alt="Animation Club">
     </div>
   </section>
   
@@ -917,7 +913,7 @@
   <section class="content" data-animate>
     <h2>Storybook.nz</h2>
     <div class="content-images">
-      <img src="https://picsum.photos/400/300?random=171" alt="Storybook">
+      <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763528798/storybook2025_aeo3pi.jpg" alt="Storybook">
     </div>
   </section>
   
@@ -987,6 +983,7 @@
   
   <section class="content" data-animate>
     <h2>bummer of the year?</h2>
+    <h3>Two Rear Ends in One Year!</h3>
     <div class="content-images">
       <img src="https://picsum.photos/400/300?random=200" alt="Bummer">
     </div>
@@ -1007,9 +1004,14 @@
   </section>
   
   <section class="content" data-animate>
-    <h2>Sweet Treats</h2>
-    <div class="content-images">
-      <img src="https://picsum.photos/400/300?random=210" alt="Sweet Treats">
+    <h2>Sidon-gram!</h2>
+    <div class="instagram-grid">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DM-JgI7hHG_/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DM2YaUQhddj/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPvoNXvgdaB/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DQqMDB8gQ6f/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DJvq-Z4hUFX/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKqwKQBBVrq/" data-instgrm-version="14"></blockquote>
     </div>
   </section>
   
@@ -1028,9 +1030,9 @@
   </section>
   
   <section class="content" data-animate>
-    <h2>New Kitchen!</h2>
+    <h2>Sweet Treats</h2>
     <div class="content-images">
-      <img src="https://picsum.photos/400/300?random=220" alt="New Kitchen">
+      <img src="https://picsum.photos/400/300?random=220" alt="Sweet Treats">
     </div>
   </section>
   
@@ -1049,9 +1051,9 @@
   </section>
   
   <section class="content" data-animate>
-    <h2>Next year we look forward to</h2>
+    <h2>New Kitchen!</h2>
     <div class="content-images">
-      <img src="https://picsum.photos/400/300?random=230" alt="Looking Forward">
+      <img src="https://picsum.photos/400/300?random=230" alt="New Kitchen">
     </div>
   </section>
   
@@ -1069,6 +1071,27 @@
     </div>
   </section>
   
+  <section class="content" data-animate>
+    <h2>Next year we look forward to</h2>
+    <div class="content-images">
+      <img src="https://picsum.photos/400/300?random=240" alt="Looking Forward">
+    </div>
+  </section>
+  
+  <section class="brick-layer" data-animate>
+    <div class="brick-row">
+      <img src="https://picsum.photos/400/300?random=241" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=242" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=243" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=244" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=245" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=246" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=247" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=248" alt="Memory">
+      <img src="https://picsum.photos/400/300?random=249" alt="Memory">
+    </div>
+  </section>
+  
   <section id="sky" data-animate>
     <div class="building-top"></div>
     <div class="sun"></div>
@@ -1076,6 +1099,7 @@
   </section>
 </div>
 
+<script async src="//www.instagram.com/embed.js"></script>
 <script>
 const scrollWrapper = document.getElementById('scrollWrapper');
 const animatableElements = document.querySelectorAll('[data-animate]');
