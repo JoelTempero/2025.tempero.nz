@@ -287,8 +287,8 @@
   }
   
   .song-item img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 15px;
@@ -309,7 +309,7 @@
   }
   
   .song-of-year img {
-    width: 200px !important;
+    width: 500px !important;
     max-width: 90% !important;
   }
   
@@ -356,6 +356,18 @@
     justify-items: center;
   }
   
+  .instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto 20px auto;
+  }
+  
+  .instagram-item {
+    width: 100%;
+  }
+  
   .instagram-container iframe {
     width: 100%;
     min-height: 600px;
@@ -370,6 +382,41 @@
     object-fit: contain;
     border-radius: 12px;
     image-rendering: auto;
+  }
+  
+  /* Specific image size adjustments */
+  .year-in-pixels img {
+    width: 400px !important;
+  }
+  
+  .top-films img {
+    width: 1800px !important;
+  }
+  
+  .top-tv img {
+    width: 1800px !important;
+  }
+  
+  .podcasts-section img {
+    width: 1800px !important;
+  }
+  
+  .rachels-reading img {
+    width: 1560px !important;
+  }
+  
+  .game-runner-ups img,
+  .best-game img,
+  .joels-nostalgia img {
+    width: 1560px !important;
+  }
+  
+  .animation-club img {
+    width: 1800px !important;
+  }
+  
+  .storybook-section img {
+    width: 2400px !important;
   }
   
   .content iframe {
@@ -516,7 +563,7 @@
     </div>
   </section>
   
-  <section class="content" data-animate>
+  <section class="content year-in-pixels" data-animate>
     <h2>The Year in Pixels</h2>
     <div class="content-images">
       <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763717019/daylio24_zvwjhx.jpg" alt="Year in Pixels">
@@ -537,7 +584,7 @@
     </div>
   </section>
   
-  <section class="content" data-animate>
+  <section class="content top-films" data-animate>
     <h2>Top Films</h2>
     <div class="content-images">
       <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763764164/2025movies_ukljtr.png" alt="Top Films">
@@ -558,7 +605,7 @@
     </div>
   </section>
   
-  <section class="content" data-animate>
+  <section class="content top-tv" data-animate>
     <h2>Top TV</h2>
     <div class="content-images">
       <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763784918/2025TV_frzc6y.jpg" alt="Top TV">
@@ -682,7 +729,7 @@
     </div>
   </section>
   
-  <section class="content" data-animate>
+  <section class="content podcasts-section" data-animate>
     <h2>Podcasts</h2>
     <div class="content-images">
       <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763527403/2025podcasts_aixrfo.jpg" alt="Podcasts">
@@ -703,7 +750,7 @@
     </div>
   </section>
   
-  <section class="content" data-animate>
+  <section class="content rachels-reading" data-animate>
     <h2>Rachels Reading</h2>
     <div class="content-images">
       <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763785598/RachelReading2025_y1lpqs.png" alt="Reading">
@@ -724,22 +771,22 @@
     </div>
   </section>
   
-  <section class="content" data-animate>
+  <section class="content game-runner-ups" data-animate>
     <h2>Runner Ups</h2>
     <div class="content-images">
       <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763282922/RunnerUpGames_brbucr.png" alt="Game Runner Ups" crossorigin="anonymous">
     </div>
   </section>
   
-  <section class="content" data-animate>
+  <section class="content best-game" data-animate>
     <h2>Best Game</h2>
     <div class="content-images">
       <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763281864/BestGame_qua9uy.png" alt="Best Game" crossorigin="anonymous">
     </div>
   </section>
   
-  <section class="content" data-animate>
-    <h2>Joel's Nostalgia Run</h2>
+  <section class="content joels-nostalgia" data-animate>
+    <h2>Joel\'s Nostalgia Run</h2>
     <div class="content-images">
       <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763282922/JoelsGames_vpsdnb.png" alt="Joel's Nostalgia Run" crossorigin="anonymous">
     </div>
@@ -763,35 +810,43 @@
     <h2>Tempero Creative</h2>
     <div class="video-grid">
       <div class="video-item">
-        <h4>What if everyone got a chair?</h4>
+        <h4>Project Link</h4>
         <iframe src="https://www.youtube.com/embed/IKUMRVsxjIQ" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
       <div class="video-item">
-        <h4>Favourite Photo of my Wife</h4>
+        <h4>My Favourite Photo of my Wife</h4>
         <iframe src="https://www.youtube.com/embed/LS6JOx-M6ho" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
       <div class="video-item">
-        <h4>Rating Disney Rides</h4>
+        <h4>What if Everyone Got A Chair?</h4>
         <iframe src="https://www.youtube.com/embed/tanyD_yF5_s" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
       <div class="video-item">
-        <h4>Editfest</h4>
+        <h4>Rating Disneyland Rides</h4>
         <iframe src="https://www.youtube.com/embed/-xzE6TPqpt4" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
       <div class="video-item">
-        <h4>Project Link</h4>
+        <h4>Editfest</h4>
         <iframe src="https://player.vimeo.com/video/1077797233" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
       <div class="video-item">
-        <h4>OuterWilds Race to the Eye</h4>
+        <h4>Outer Wilds - Race To The Eye</h4>
         <iframe src="https://www.youtube.com/embed/SJBzWBqrzEs" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
     </div>
-    <div class="instagram-container">
-      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DNFv2-EvFMW/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DOkLCdUCHtv/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DM1VoNIvHVj/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DQNutYYk_QN/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+    <div class="instagram-grid">
+      <div class="instagram-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DNFv2-EvFMW/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+      </div>
+      <div class="instagram-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DOkLCdUCHtv/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+      </div>
+      <div class="instagram-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DM1VoNIvHVj/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+      </div>
+      <div class="instagram-item">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DQNutYYk_QN/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+      </div>
     </div>
   </section>
   
@@ -809,7 +864,7 @@
     </div>
   </section>
   
-  <section class="content" data-animate>
+  <section class="content animation-club" data-animate>
     <h2>Animation Club</h2>
     <div class="content-images">
       <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763528125/Animation_Club_ncfrqk.jpg" alt="Animation Club">
@@ -882,7 +937,7 @@
     </div>
   </section>
   
-  <section class="content" data-animate>
+  <section class="content storybook-section" data-animate>
     <h2>Storybook.nz</h2>
     <div class="content-images">
       <img src="https://res.cloudinary.com/dneb3rzqf/image/upload/v1763528798/storybook2025_aeo3pi.jpg" alt="Storybook">
@@ -1101,6 +1156,19 @@ function scrollPage() {
 
 scrollWrapper.addEventListener('scroll', updateColors);
 updateColors();
+
+// Initialize Instagram embeds when they're loaded
+if (window.instgrm) {
+  window.instgrm.Embeds.process();
+} else {
+  // Wait for Instagram embed script to load
+  window.addEventListener('load', function() {
+    if (window.instgrm) {
+      window.instgrm.Embeds.process();
+    }
+  });
+}
 </script>
+<script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
