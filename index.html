@@ -98,21 +98,21 @@
   }
   
   .lookback-logo {
-    width: 60px;
+    width: 120px;
     height: auto;
     margin-bottom: 0.5rem;
   }
   
   .lookback-text {
     color: white;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 300;
     margin: 0;
   }
   
   .lookback-subtext {
     color: white;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-weight: 300;
     margin: 0.2rem 0 0 0;
     opacity: 0.8;
@@ -516,36 +516,58 @@
     position: relative;
     z-index: 5;
   }
-  #sky .sun {
-    width: 120px;
-    height: 120px;
-    background: radial-gradient(circle, #ffd700, #ffed4e);
-    border-radius: 50%;
-    margin-bottom: 2rem;
-    box-shadow: 0 0 60px rgba(255, 215, 0, 0.6);
+  #sky .sky-elements {
     position: relative;
-    z-index: 5;
-    opacity: 0;
+    width: 400px;
+    height: 200px;
+    margin-bottom: 2rem;
+    z-index: 1;
   }
   
-  #sky.animate .sun {
-    animation: sunRise 1.5s ease-out 0.5s forwards;
+  #sky .sky-sun {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    mix-blend-mode: screen;
+    z-index: 1;
+  }
+  
+  #sky .sky-clouds {
+    position: absolute;
+    width: 400px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: 2;
+  }
+  
+  #sky.animate .sky-sun,
+  #sky.animate .sky-clouds {
+    animation: fadeIn 1.5s ease-out 0.5s forwards;
+  }
+  
+  #sky.animate .sky-clouds {
+    animation: fadeIn 1.5s ease-out 0.5s forwards, cloudDrift 120s linear 2s infinite;
+  }
+  
+  @keyframes cloudDrift {
+    from {
+      transform: translate(-50%, -50%);
+    }
+    to {
+      transform: translate(-150%, -50%);
+    }
   }
   
   @keyframes fadeIn {
     to {
       opacity: 1;
-    }
-  }
-  
-  @keyframes sunRise {
-    from {
-      opacity: 0;
-      transform: translateY(100px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
     }
   }
   
@@ -1142,7 +1164,10 @@
   
   <section id="sky" data-animate>
     <div class="building-top"></div>
-    <div class="sun"></div>
+    <div class="sky-elements">
+      <img src="images/Logos/sun.png" alt="Sun" class="sky-sun">
+      <img src="images/Logos/clouds.png" alt="Clouds" class="sky-clouds">
+    </div>
     <h2>See you next year!</h2>
   </section>
 </div>
