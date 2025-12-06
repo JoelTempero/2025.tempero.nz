@@ -89,7 +89,7 @@
     align-items: center;
     text-decoration: none;
     opacity: 0;
-    animation: fadeIn 0.8s ease-in 3.5s forwards;
+    animation: fadeIn 0.8s ease-in 2.5s forwards;
     transition: opacity 0.3s ease;
   }
   
@@ -98,21 +98,21 @@
   }
   
   .lookback-logo {
-    width: 60px;
+    width: 180px;
     height: auto;
     margin-bottom: 0.5rem;
   }
   
   .lookback-text {
     color: white;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 300;
     margin: 0;
   }
   
   .lookback-subtext {
     color: white;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-weight: 300;
     margin: 0.2rem 0 0 0;
     opacity: 0.8;
@@ -402,6 +402,27 @@
   
   .instagram-item {
     width: 100%;
+    position: relative;
+  }
+  
+  .instagram-item::after {
+    content: '▶ Watch on Instagram';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .instagram-item:hover::after {
+    opacity: 1;
   }
   
   .instagram-container iframe {
@@ -486,6 +507,7 @@
     background-color: var(--building-color, #99B0BA);
     border-radius: 20px 20px 0 0;
     z-index: 10;
+    opacity: 1 !important;
   }
   
   #sky h2 {
@@ -495,36 +517,59 @@
     position: relative;
     z-index: 5;
   }
-  #sky .sun {
-    width: 120px;
-    height: 120px;
-    background: radial-gradient(circle, #ffd700, #ffed4e);
-    border-radius: 50%;
-    margin-bottom: 2rem;
-    box-shadow: 0 0 60px rgba(255, 215, 0, 0.6);
-    position: relative;
-    z-index: 5;
-    opacity: 0;
+  #sky .sky-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
   }
   
-  #sky.animate .sun {
-    animation: sunRise 1.5s ease-out 0.5s forwards;
+  #sky .sky-sun {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    mix-blend-mode: screen;
+    z-index: 1;
+  }
+  
+  #sky .sky-clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 2;
+  }
+  
+  #sky.animate .sky-sun,
+  #sky.animate .sky-clouds {
+    animation: fadeIn 1.5s ease-out 0.5s forwards;
+  }
+  
+  #sky.animate .sky-clouds {
+    animation: fadeIn 1.5s ease-out 0.5s forwards, cloudDrift 120s linear 2s infinite;
+  }
+  
+  @keyframes cloudDrift {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-10%);
+    }
   }
   
   @keyframes fadeIn {
     to {
       opacity: 1;
-    }
-  }
-  
-  @keyframes sunRise {
-    from {
-      opacity: 0;
-      transform: translateY(100px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
     }
   }
   
@@ -563,7 +608,7 @@
       </svg>
     </div>
     <a href="https://lookback.nz" target="_blank" class="lookback-credit">
-      <img src="images/logos/lookback01.png" alt="Lookback Logo" class="lookback-logo">
+      <img src="images/Logos/Lookback01.png" alt="Lookback Logo" class="lookback-logo">
       <p class="lookback-text">Design by lookback.nz</p>
       <p class="lookback-subtext">Get yours today</p>
     </a>
@@ -571,99 +616,99 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (1).jpg" alt="Memory">
-      <img src="images/brick/brick (2).jpg" alt="Memory">
-      <img src="images/brick/brick (3).png" alt="Memory">
-      <img src="images/brick/brick (4).jpg" alt="Memory">
-      <img src="images/brick/brick (5).jpg" alt="Memory">
-      <img src="images/brick/brick (6).jpg" alt="Memory">
-      <img src="images/brick/brick (7).jpg" alt="Memory">
-      <img src="images/brick/brick (8).jpg" alt="Memory">
-      <img src="images/brick/brick (9).jpg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick2.jpg" alt="Memory">
+      <img src="images/brickimages/brick3.png" alt="Memory">
+      <img src="images/brickimages/brick4.jpg" alt="Memory">
+      <img src="images/brickimages/brick5.jpg" alt="Memory">
+      <img src="images/brickimages/brick6.jpg" alt="Memory">
+      <img src="images/brickimages/brick7.jpg" alt="Memory">
+      <img src="images/brickimages/brick8.jpg" alt="Memory">
+      <img src="images/brickimages/brick9.jpg" alt="Memory">
     </div>
   </section>
   
   <section class="content" data-animate>
     <h2>Daily Journalling & Emotional Checkins</h2>
     <div class="content-images">
-      <img src="images/content/25emotionsandjournalling.png" alt="Daily Journalling">
+      <img src="images/Content/2025emotionsandjournalling.png" alt="Daily Journalling">
     </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (10).jpg" alt="Memory">
-      <img src="images/brick/brick (11).jpg" alt="Memory">
-      <img src="images/brick/brick (12).jpg" alt="Memory">
-      <img src="images/brick/brick (13).jpg" alt="Memory">
-      <img src="images/brick/brick (14).jpg" alt="Memory">
-      <img src="images/brick/brick (15).jpg" alt="Memory">
-      <img src="images/brick/brick (16).jpg" alt="Memory">
-      <img src="images/brick/brick (17).jpg" alt="Memory">
-      <img src="images/brick/brick (18).jpg" alt="Memory">
+      <img src="images/brickimages/brick10.jpg" alt="Memory">
+      <img src="images/brickimages/brick11.jpg" alt="Memory">
+      <img src="images/brickimages/brick12.jpg" alt="Memory">
+      <img src="images/brickimages/brick13.jpg" alt="Memory">
+      <img src="images/brickimages/brick14.jpg" alt="Memory">
+      <img src="images/brickimages/brick15.jpg" alt="Memory">
+      <img src="images/brickimages/brick16.jpg" alt="Memory">
+      <img src="images/brickimages/brick17.jpg" alt="Memory">
+      <img src="images/brickimages/brick18.JPG" alt="Memory">
     </div>
   </section>
   
   <section class="content year-in-pixels" data-animate>
     <h2>The Year in Pixels</h2>
     <div class="content-images">
-      <img src="images/content/daylio24.jpg" alt="Year in Pixels">
+      <img src="images/Content/2025Daylio.jpg" alt="Year in Pixels">
     </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (19).jpg" alt="Memory">
-      <img src="images/brick/brick (20).jpg" alt="Memory">
-      <img src="images/brick/brick (21).jpg" alt="Memory">
-      <img src="images/brick/brick (22).jpg" alt="Memory">
-      <img src="images/brick/brick (23).jpg" alt="Memory">
-      <img src="images/brick/brick (24).jpg" alt="Memory">
-      <img src="images/brick/brick (25).jpg" alt="Memory">
-      <img src="images/brick/brick (26).jpg" alt="Memory">
-      <img src="images/brick/brick (27).jpg" alt="Memory">
+      <img src="images/brickimages/brick19.jpg" alt="Memory">
+      <img src="images/brickimages/brick20.jpg" alt="Memory">
+      <img src="images/brickimages/brick21.jpg" alt="Memory">
+      <img src="images/brickimages/brick22.jpg" alt="Memory">
+      <img src="images/brickimages/brick23.jpg" alt="Memory">
+      <img src="images/brickimages/brick24.jpg" alt="Memory">
+      <img src="images/brickimages/brick25.jpg" alt="Memory">
+      <img src="images/brickimages/brick26.jpg" alt="Memory">
+      <img src="images/brickimages/brick27.jpg" alt="Memory">
     </div>
   </section>
   
   <section class="content top-films" data-animate>
     <h2>Top Films</h2>
     <div class="content-images">
-      <img src="images/content/2025movies.png" alt="Top Films">
+      <img src="images/Content/2025movies.png" alt="Top Films">
     </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (28).jpg" alt="Memory">
-      <img src="images/brick/brick (29).jpg" alt="Memory">
-      <img src="images/brick/brick (30).jpg" alt="Memory">
-      <img src="images/brick/brick (31).jpg" alt="Memory">
-      <img src="images/brick/brick (32).jpg" alt="Memory">
-      <img src="images/brick/brick (33).jpg" alt="Memory">
-      <img src="images/brick/brick (34).jpg" alt="Memory">
-      <img src="images/brick/brick (35).jpg" alt="Memory">
-      <img src="images/brick/brick (36).jpg" alt="Memory">
+      <img src="images/brickimages/brick28.jpg" alt="Memory">
+      <img src="images/brickimages/brick29.jpg" alt="Memory">
+      <img src="images/brickimages/brick30.jpg" alt="Memory">
+      <img src="images/brickimages/brick31.jpg" alt="Memory">
+      <img src="images/brickimages/brick32.jpg" alt="Memory">
+      <img src="images/brickimages/brick33.jpg" alt="Memory">
+      <img src="images/brickimages/brick34.jpg" alt="Memory">
+      <img src="images/brickimages/brick35.jpg" alt="Memory">
+      <img src="images/brickimages/brick36.jpg" alt="Memory">
     </div>
   </section>
   
   <section class="content top-tv" data-animate>
     <h2>Top TV</h2>
     <div class="content-images">
-      <img src="images/content/2025TV.jpg" alt="Top TV">
+      <img src="images/Content/2025TV.jpg" alt="Top TV">
     </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (37).jpg" alt="Memory">
-      <img src="images/brick/brick (38).jpg" alt="Memory">
-      <img src="images/brick/brick (39).jpg" alt="Memory">
-      <img src="images/brick/brick (40).jpg" alt="Memory">
-      <img src="images/brick/brick (41).jpg" alt="Memory">
-      <img src="images/brick/brick (42).jpg" alt="Memory">
-      <img src="images/brick/brick (43).jpg" alt="Memory">
-      <img src="images/brick/brick (44).jpg" alt="Memory">
-      <img src="images/brick/brick (45).jpg" alt="Memory">
+      <img src="images/brickimages/brick37.jpg" alt="Memory">
+      <img src="images/brickimages/brick38.jpg" alt="Memory">
+      <img src="images/brickimages/brick39.jpg" alt="Memory">
+      <img src="images/brickimages/brick40.jpg" alt="Memory">
+      <img src="images/brickimages/brick41.jpg" alt="Memory">
+      <img src="images/brickimages/brick42.jpg" alt="Memory">
+      <img src="images/brickimages/brick43.jpg" alt="Memory">
+      <img src="images/brickimages/brick44.jpg" alt="Memory">
+      <img src="images/brickimages/brick45.jpg" alt="Memory">
     </div>
   </section>
   
@@ -671,77 +716,77 @@
     <h2>All the close seconds</h2>
     <div class="songs-grid">
       <div class="song-item">
-        <img src="images/albums/NorthernAttitude.png" alt="Northern Attitude" crossorigin="anonymous">
+        <img src="images/Albums/NothernAttitude.png" alt="Northern Attitude" crossorigin="anonymous">
         <h4>Northen Attitude</h4>
         <p>Noah Kahan & Hozier</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/JonBellion.png" alt="WHY" crossorigin="anonymous">
+        <img src="images/Albums/JonBellion.png" alt="WHY" crossorigin="anonymous">
         <h4>WHY</h4>
         <p>John Bellion</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/SilentMovie.png" alt="Silent Movie" crossorigin="anonymous">
+        <img src="images/Albums/SilentMovie.png" alt="Silent Movie" crossorigin="anonymous">
         <h4>Silent Movie</h4>
         <p>Strutman Lane</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/JonBellion.png" alt="HOROSCOPE" crossorigin="anonymous">
+        <img src="images/Albums/JonBellion.png" alt="HOROSCOPE" crossorigin="anonymous">
         <h4>HOROSCOPE</h4>
         <p>Jon Bellion</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/TOP.png" alt="Drum Show" crossorigin="anonymous">
+        <img src="images/Albums/TOP.png" alt="Drum Show" crossorigin="anonymous">
         <h4>Drum Show</h4>
         <p>Twenty One Pilots</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/HumanHappens.png" alt="Human Happens" crossorigin="anonymous">
+        <img src="images/Albums/HumanHappens.png" alt="Human Happens" crossorigin="anonymous">
         <h4>Human Happens</h4>
         <p>Magdalena Bay</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/BonIver.png" alt="Everything is Peaceful Love" crossorigin="anonymous">
+        <img src="images/Albums/BonIver.png" alt="Everything is Peaceful Love" crossorigin="anonymous">
         <h4>Everything is Peaceful Love</h4>
         <p>Bon Iver</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/Bunnies.png" alt="Bunnies" crossorigin="anonymous">
+        <img src="images/Albums/Bunnies.png" alt="Bunnies" crossorigin="anonymous">
         <h4>Bunnies</h4>
         <p>Oliver Richman</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/8Bit.png" alt="Wii Sports" crossorigin="anonymous">
+        <img src="images/Albums/8Bit.png" alt="Wii Sports" crossorigin="anonymous">
         <h4>Wii Sports</h4>
         <p>The 8-bit Band</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/AJR.png" alt="The DJ is Crying for Help" crossorigin="anonymous">
+        <img src="images/Albums/AJR.png" alt="The DJ is Crying for Help" crossorigin="anonymous">
         <h4>The DJ is Crying for Help</h4>
         <p>AJR</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/StardewConcert.png" alt="Season Suite (Summer)" crossorigin="anonymous">
+        <img src="images/Albums/StardewConcert.png" alt="Season Suite (Summer)" crossorigin="anonymous">
         <h4>Season Suite (Summer)</h4>
         <p>Stardew Valley in Concert</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/Noise.png" alt="To Noise Making" crossorigin="anonymous">
+        <img src="images/Albums/Noise.png" alt="To Noise Making" crossorigin="anonymous">
         <h4>To Noise Making</h4>
         <p>Hozier</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/DarrenCriss.png" alt="Dreamed a Dream" crossorigin="anonymous">
+        <img src="images/Albums/DarrenCriss.png" alt="Dreamed a Dream" crossorigin="anonymous">
         <h4>Dreamed a Dream</h4>
         <p>Darren Criss</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/OuterWildsSuite.png" alt="Outer Wilds Suite" crossorigin="anonymous">
+        <img src="images/Albums/OuterWildsSuite.png" alt="Outer Wilds Suite" crossorigin="anonymous">
         <h4>Outer Wilds Suite</h4>
         <p>StereoNauti</p>
       </div>
       <div class="song-item">
-        <img src="images/albums/DragPath.png" alt="Drag Path" crossorigin="anonymous">
+        <img src="images/Albums/DragPath.png" alt="Drag Path" crossorigin="anonymous">
         <h4>Drag Path</h4>
         <p>Twenty One Pilots</p>
       </div>
@@ -752,98 +797,98 @@
     <h2>Song of the Year</h2>
     <h3>AWARDS SEASON by Bon Iver</h3>
     <div class="content-images song-of-year">
-      <img src="images/albums/BonIver.png" alt="Song of the Year" crossorigin="anonymous">
+      <img src="images/Albums/BonIver.png" alt="Song of the Year" crossorigin="anonymous">
     </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (46).jpg" alt="Memory">
-      <img src="images/brick/brick (47).jpg" alt="Memory">
-      <img src="images/brick/brick (48).jpg" alt="Memory">
-      <img src="images/brick/brick (49).jpg" alt="Memory">
-      <img src="images/brick/brick (50).jpg" alt="Memory">
-      <img src="images/brick/brick (51).jpg" alt="Memory">
-      <img src="images/brick/brick (52).jpg" alt="Memory">
-      <img src="images/brick/brick (53).jpg" alt="Memory">
-      <img src="images/brick/brick (54).jpg" alt="Memory">
+      <img src="images/brickimages/brick46.jpg" alt="Memory">
+      <img src="images/brickimages/brick47.jpg" alt="Memory">
+      <img src="images/brickimages/brick48.jpg" alt="Memory">
+      <img src="images/brickimages/brick49.jpg" alt="Memory">
+      <img src="images/brickimages/brick50.jpg" alt="Memory">
+      <img src="images/brickimages/brick51.jpg" alt="Memory">
+      <img src="images/brickimages/brick52.jpg" alt="Memory">
+      <img src="images/brickimages/brick53.jpg" alt="Memory">
+      <img src="images/brickimages/brick54.jpg" alt="Memory">
     </div>
   </section>
   
   <section class="content podcasts-section" data-animate>
     <h2>Podcasts</h2>
     <div class="content-images">
-      <img src="images/content/2025podcasts.jpg" alt="Podcasts">
+      <img src="images/Content/2025podcasts.jpg" alt="Podcasts">
     </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (55).jpg" alt="Memory">
-      <img src="images/brick/brick (56).jpg" alt="Memory">
-      <img src="images/brick/brick (57).jpg" alt="Memory">
-      <img src="images/brick/brick (58).png" alt="Memory">
-      <img src="images/brick/brick (59).jpg" alt="Memory">
-      <img src="images/brick/brick (60).jpg" alt="Memory">
-      <img src="images/brick/brick (61).jpg" alt="Memory">
-      <img src="images/brick/brick (62).jpg" alt="Memory">
-      <img src="images/brick/brick (63).jpg" alt="Memory">
+      <img src="images/brickimages/brick55.jpg" alt="Memory">
+      <img src="images/brickimages/brick56.jpg" alt="Memory">
+      <img src="images/brickimages/brick57.jpg" alt="Memory">
+      <img src="images/brickimages/brick58.png" alt="Memory">
+      <img src="images/brickimages/brick59.jpg" alt="Memory">
+      <img src="images/brickimages/brick60.jpg" alt="Memory">
+      <img src="images/brickimages/brick61.jpg" alt="Memory">
+      <img src="images/brickimages/brick62.jpg" alt="Memory">
+      <img src="images/brickimages/brick63.jpg" alt="Memory">
     </div>
   </section>
   
   <section class="content rachels-reading" data-animate>
     <h2>Rachels Reading</h2>
     <div class="content-images">
-      <img src="images/content/RachelReading2025.png" alt="Reading">
+      <img src="images/Content/2025RachelReading.png" alt="Reading">
     </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (73).jpg" alt="Memory">
-      <img src="images/brick/brick (74).jpg" alt="Memory">
-      <img src="images/brick/brick (75).jpg" alt="Memory">
-      <img src="images/brick/brick (76).jpg" alt="Memory">
-      <img src="images/brick/brick (77).jpg" alt="Memory">
-      <img src="images/brick/brick (78).jpg" alt="Memory">
-      <img src="images/brick/brick (79).jpg" alt="Memory">
-      <img src="images/brick/brick (80).jpg" alt="Memory">
-      <img src="images/brick/brick (81).jpg" alt="Memory">
+      <img src="images/brickimages/brick73.jpg" alt="Memory">
+      <img src="images/brickimages/brick74.jpg" alt="Memory">
+      <img src="images/brickimages/brick75.jpg" alt="Memory">
+      <img src="images/brickimages/brick76.jpg" alt="Memory">
+      <img src="images/brickimages/brick77.jpg" alt="Memory">
+      <img src="images/brickimages/brick78.jpg" alt="Memory">
+      <img src="images/brickimages/brick79.jpg" alt="Memory">
+      <img src="images/brickimages/brick80.jpg" alt="Memory">
+      <img src="images/brickimages/brick81.jpeg" alt="Memory">
     </div>
   </section>
   
   <section class="content game-runner-ups" data-animate>
     <h2>Runner Ups</h2>
     <div class="content-images">
-      <img src="images/content/RunnerUpGames.png" alt="Game Runner Ups" crossorigin="anonymous">
+      <img src="images/Content/2025RunnerUpGames.png" alt="Game Runner Ups" crossorigin="anonymous">
     </div>
   </section>
   
   <section class="content best-game" data-animate>
     <h2>Best Game</h2>
     <div class="content-images">
-      <img src="images/content/2025BestGame.png" alt="Best Game" crossorigin="anonymous">
+      <img src="images/Content/2025BestGame.png" alt="Best Game" crossorigin="anonymous">
     </div>
   </section>
   
   <section class="content joels-nostalgia" data-animate>
     <h2>Joel\'s Nostalgia Run</h2>
     <div class="content-images">
-      <img src="images/content/JoelsGames.png" alt="Joel's Nostalgia Run" crossorigin="anonymous">
+      <img src="images/Content/2025JoelsGames.png" alt="Joel's Nostalgia Run" crossorigin="anonymous">
     </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (82).jpg" alt="Memory">
-      <img src="images/brick/brick (83).png" alt="Memory">
-      <img src="images/brick/brick (84).jpg" alt="Memory">
-      <img src="images/brick/brick (85).jpg" alt="Memory">
-      <img src="images/brick/brick (86).jpg" alt="Memory">
-      <img src="images/brick/brick (87).jpg" alt="Memory">
-      <img src="images/brick/brick (88).jpg" alt="Memory">
-      <img src="images/brick/brick (89).jpg" alt="Memory">
-      <img src="images/brick/brick (90).jpg" alt="Memory">
+      <img src="images/brickimages/brick82.jpg" alt="Memory">
+      <img src="images/brickimages/brick83.png" alt="Memory">
+      <img src="images/brickimages/brick84.jpg" alt="Memory">
+      <img src="images/brickimages/brick85.jpg" alt="Memory">
+      <img src="images/brickimages/brick86.jpg" alt="Memory">
+      <img src="images/brickimages/brick87.jpg" alt="Memory">
+      <img src="images/brickimages/brick88.jpg" alt="Memory">
+      <img src="images/brickimages/brick89.jpg" alt="Memory">
+      <img src="images/brickimages/brick90.jpg" alt="Memory">
     </div>
   </section>
   
@@ -875,54 +920,40 @@
         <iframe src="https://www.youtube.com/embed/SJBzWBqrzEs" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
     </div>
-    <div class="instagram-grid">
-      <div class="instagram-item">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DNFv2-EvFMW/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="instagram-item">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DOkLCdUCHtv/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="instagram-item">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DM1VoNIvHVj/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
-      </div>
-      <div class="instagram-item">
-        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DQNutYYk_QN/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
-      </div>
-    </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (91).jpg" alt="Memory">
-      <img src="images/brick/brick (92).jpg" alt="Memory">
-      <img src="images/brick/brick (93).jpg" alt="Memory">
-      <img src="images/brick/brick (94).jpg" alt="Memory">
-      <img src="images/brick/brick (95).jpg" alt="Memory">
-      <img src="images/brick/brick (96).jpg" alt="Memory">
-      <img src="images/brick/brick (97).png" alt="Memory">
-      <img src="images/brick/brick (98).jpg" alt="Memory">
-      <img src="images/brick/brick (99).jpg" alt="Memory">
+      <img src="images/brickimages/brick91.jpg" alt="Memory">
+      <img src="images/brickimages/brick92.jpg" alt="Memory">
+      <img src="images/brickimages/brick93.jpg" alt="Memory">
+      <img src="images/brickimages/brick94.jpg" alt="Memory">
+      <img src="images/brickimages/brick95.jpeg" alt="Memory">
+      <img src="images/brickimages/brick96.jpg" alt="Memory">
+      <img src="images/brickimages/brick97.png" alt="Memory">
+      <img src="images/brickimages/brick98.jpg" alt="Memory">
+      <img src="images/brickimages/brick99.jpg" alt="Memory">
     </div>
   </section>
   
   <section class="content animation-club" data-animate>
     <h2>Animation Club</h2>
     <div class="content-images">
-      <img src="images/content/Animation_Club.jpg" alt="Animation Club">
+      <img src="images/Content/2025Animation Club.jpg" alt="Animation Club">
     </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (100).jpg" alt="Memory">
-      <img src="images/brick/brick (101).jpg" alt="Memory">
-      <img src="images/brick/brick (102).jpg" alt="Memory">
-      <img src="images/brick/brick (103).jpg" alt="Memory">
-      <img src="images/brick/brick (104).jpg" alt="Memory">
-      <img src="images/brick/brick (105).jpg" alt="Memory">
-      <img src="images/brick/brick (106).jpg" alt="Memory">
-      <img src="images/brick/brick (107).jpg" alt="Memory">
-      <img src="images/brick/brick (108).jpg" alt="Memory">
+      <img src="images/brickimages/brick100.jpg" alt="Memory">
+      <img src="images/brickimages/brick101.jpg" alt="Memory">
+      <img src="images/brickimages/brick102.jpg" alt="Memory">
+      <img src="images/brickimages/brick103.jpg" alt="Memory">
+      <img src="images/brickimages/brick104.jpg" alt="Memory">
+      <img src="images/brickimages/brick105.jpg" alt="Memory">
+      <img src="images/brickimages/brick106.jpg" alt="Memory">
+      <img src="images/brickimages/brick107.jpg" alt="Memory">
+      <img src="images/brickimages/brick108.jpeg" alt="Memory">
     </div>
   </section>
   
@@ -966,36 +997,36 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (109).jpg" alt="Memory">
-      <img src="images/brick/brick (110).png" alt="Memory">
-      <img src="images/brick/brick (111).jpg" alt="Memory">
-      <img src="images/brick/brick (112).jpg" alt="Memory">
-      <img src="images/brick/brick (113).jpg" alt="Memory">
-      <img src="images/brick/brick (114).jpg" alt="Memory">
-      <img src="images/brick/brick (115).jpg" alt="Memory">
-      <img src="images/brick/brick (116).jpg" alt="Memory">
-      <img src="images/brick/brick (117).jpg" alt="Memory">
+      <img src="images/brickimages/brick109.jpg" alt="Memory">
+      <img src="images/brickimages/brick110.png" alt="Memory">
+      <img src="images/brickimages/brick111.jpg" alt="Memory">
+      <img src="images/brickimages/brick112.jpg" alt="Memory">
+      <img src="images/brickimages/brick113.jpg" alt="Memory">
+      <img src="images/brickimages/brick114.jpg" alt="Memory">
+      <img src="images/brickimages/brick115.jpg" alt="Memory">
+      <img src="images/brickimages/brick116.jpg" alt="Memory">
+      <img src="images/brickimages/brick117.jpg" alt="Memory">
     </div>
   </section>
   
   <section class="content storybook-section" data-animate>
     <h2>Storybook.nz</h2>
     <div class="content-images">
-      <img src="images/content/storybook2025.jpg" alt="Storybook">
+      <img src="images/Content/2025storybook.jpg" alt="Storybook">
     </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (118).jpg" alt="Memory">
-      <img src="images/brick/brick (119).jpg" alt="Memory">
-      <img src="images/brick/brick (120).jpg" alt="Memory">
-      <img src="images/brick/brick (121).png" alt="Memory">
-      <img src="images/brick/brick (122).jpg" alt="Memory">
-      <img src="images/brick/brick (123).jpg" alt="Memory">
-      <img src="images/brick/brick (124).png" alt="Memory">
-      <img src="images/brick/brick (125).jpg" alt="Memory">
-      <img src="images/brick/brick (126).jpg" alt="Memory">
+      <img src="images/brickimages/brick118.jpg" alt="Memory">
+      <img src="images/brickimages/brick119.jpeg" alt="Memory">
+      <img src="images/brickimages/brick120.jpg" alt="Memory">
+      <img src="images/brickimages/brick121.png" alt="Memory">
+      <img src="images/brickimages/brick122.jpeg" alt="Memory">
+      <img src="images/brickimages/brick123.jpg" alt="Memory">
+      <img src="images/brickimages/brick124.png" alt="Memory">
+      <img src="images/brickimages/brick125.jpeg" alt="Memory">
+      <img src="images/brickimages/brick126.jpg" alt="Memory">
     </div>
   </section>
   
@@ -1015,15 +1046,15 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (127).png" alt="Memory">
-      <img src="images/brick/brick (128).jpg" alt="Memory">
-      <img src="images/brick/brick (129).png" alt="Memory">
-      <img src="images/brick/brick (130).jpg" alt="Memory">
-      <img src="images/brick/brick (131).png" alt="Memory">
-      <img src="images/brick/brick (132).jpg" alt="Memory">
-      <img src="images/brick/brick (133).png" alt="Memory">
-      <img src="images/brick/brick (134).jpg" alt="Memory">
-      <img src="images/brick/brick (135).png" alt="Memory">
+      <img src="images/brickimages/brick127.png" alt="Memory">
+      <img src="images/brickimages/brick128.jpeg" alt="Memory">
+      <img src="images/brickimages/brick129.png" alt="Memory">
+      <img src="images/brickimages/brick130.jpeg" alt="Memory">
+      <img src="images/brickimages/brick131.png" alt="Memory">
+      <img src="images/brickimages/brick132.jpeg" alt="Memory">
+      <img src="images/brickimages/brick133.png" alt="Memory">
+      <img src="images/brickimages/brick134.jpeg" alt="Memory">
+      <img src="images/brickimages/brick135.png" alt="Memory">
     </div>
   </section>
   
@@ -1037,62 +1068,57 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (136).jpg" alt="Memory">
-      <img src="images/brick/brick (137).png" alt="Memory">
-      <img src="images/brick/brick (138).jpg" alt="Memory">
-      <img src="images/brick/brick (139).jpg" alt="Memory">
-      <img src="images/brick/brick (140).jpg" alt="Memory">
-      <img src="images/brick/brick (141).png" alt="Memory">
-      <img src="images/brick/brick (142).jpg" alt="Memory">
-      <img src="images/brick/brick (143).png" alt="Memory">
-      <img src="images/brick/brick (144).png" alt="Memory">
+      <img src="images/brickimages/brick136.jpeg" alt="Memory">
+      <img src="images/brickimages/brick137.png" alt="Memory">
+      <img src="images/brickimages/brick138.jpeg" alt="Memory">
+      <img src="images/brickimages/brick139.JPG" alt="Memory">
+      <img src="images/brickimages/brick140.jpg" alt="Memory">
+      <img src="images/brickimages/brick141.png" alt="Memory">
+      <img src="images/brickimages/brick142.jpg" alt="Memory">
+      <img src="images/brickimages/brick143.png" alt="Memory">
+      <img src="images/brickimages/brick144.png" alt="Memory">
     </div>
   </section>
   
   <section class="content" data-animate>
     <h2>Sidon-gram!</h2>
-    <div class="instagram-container">
-      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DM-JgI7hHG_/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DM2YaUQhddj/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DPvoNXvgdaB/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DQqMDB8gQ6f/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DJvq-Z4hUFX/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DKqwKQBBVrq/" data-instgrm-version="14" style="max-width:100%; min-width:326px; padding:0; width:calc(100% - 2px);"></blockquote>
+    <div class="content-images">
+      <img src="https://picsum.photos/800/600?random=300" alt="Sidon-gram Placeholder">
     </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (154).jpg" alt="Memory">
-      <img src="images/brick/brick (155).jpg" alt="Memory">
-      <img src="images/brick/brick (156).jpg" alt="Memory">
-      <img src="images/brick/brick (157).jpg" alt="Memory">
-      <img src="images/brick/brick (158).jpg" alt="Memory">
-      <img src="images/brick/brick (159).jpg" alt="Memory">
-      <img src="images/brick/brick (160).jpg" alt="Memory">
-      <img src="images/brick/brick (161).jpg" alt="Memory">
-      <img src="images/brick/brick (162).jpg" alt="Memory">
+      <img src="images/brickimages/brick154.jpg" alt="Memory">
+      <img src="images/brickimages/brick155.jpeg" alt="Memory">
+      <img src="images/brickimages/brick156.jpg" alt="Memory">
+      <img src="images/brickimages/brick157.jpg" alt="Memory">
+      <img src="images/brickimages/brick158.jpg" alt="Memory">
+      <img src="images/brickimages/brick159.jpg" alt="Memory">
+      <img src="images/brickimages/brick160.jpg" alt="Memory">
+      <img src="images/brickimages/brick161.jpeg" alt="Memory">
+      <img src="images/brickimages/brick162.JPG" alt="Memory">
     </div>
   </section>
   
   <section class="content" data-animate>
     <h2>Sweet Treats</h2>
     <div class="content-images">
-      <img src="https://picsum.photos/400/300?random=220" alt="Sweet Treats">
+      <img src="images/Content/2025Cakes.jpg" alt="Sweet Treats">
     </div>
   </section>
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (163).jpg" alt="Memory">
-      <img src="images/brick/brick (164).jpg" alt="Memory">
-      <img src="images/brick/brick (165).jpg" alt="Memory">
-      <img src="images/brick/brick (166).jpg" alt="Memory">
-      <img src="images/brick/brick (167).jpg" alt="Memory">
-      <img src="images/brick/brick (168).jpg" alt="Memory">
-      <img src="images/brick/brick (169).jpg" alt="Memory">
-      <img src="images/brick/brick (170).jpg" alt="Memory">
-      <img src="images/brick/brick (171).jpg" alt="Memory">
+      <img src="images/brickimages/brick163.jpg" alt="Memory">
+      <img src="images/brickimages/brick164.jpeg" alt="Memory">
+      <img src="images/brickimages/brick165.JPG" alt="Memory">
+      <img src="images/brickimages/brick166.jpg" alt="Memory">
+      <img src="images/brickimages/brick167.jpg" alt="Memory">
+      <img src="images/brickimages/brick168.jpg" alt="Memory">
+      <img src="images/brickimages/brick169.jpg" alt="Memory">
+      <img src="images/brickimages/brick170.jpg" alt="Memory">
+      <img src="images/brickimages/brick171.jpg" alt="Memory">
     </div>
   </section>
   
@@ -1105,15 +1131,15 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
     </div>
   </section>
   
@@ -1126,26 +1152,28 @@
   
   <section class="brick-layer" data-animate>
     <div class="brick-row">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
-      <img src="images/brick/brick (1).jpg.jpg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
+      <img src="images/brickimages/brick1.jpeg" alt="Memory">
     </div>
   </section>
   
   <section id="sky" data-animate>
     <div class="building-top"></div>
-    <div class="sun"></div>
+    <div class="sky-elements">
+      <img src="images/Logos/sun.png" alt="Sun" class="sky-sun">
+      <img src="images/Logos/clouds.png" alt="Clouds" class="sky-clouds">
+    </div>
     <h2>See you next year!</h2>
   </section>
 </div>
 
-<script async src="//www.instagram.com/embed.js"></script>
 <script>
 const scrollWrapper = document.getElementById('scrollWrapper');
 const animatableElements = document.querySelectorAll('[data-animate]');
@@ -1210,6 +1238,5 @@ if (window.instgrm) {
   });
 }
 </script>
-<script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
