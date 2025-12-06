@@ -614,6 +614,189 @@
       transform: translateY(0);
     }
   }
+  
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    /* Building - maintain 5% gap on each side (90% width) */
+    .building {
+      left: 5%;
+      width: 90%;
+    }
+    
+    #sky .building-top {
+      width: 90vw;
+    }
+    
+    /* Hero Section - Mobile Text Sizes */
+    #hero h1 {
+      font-size: 8rem;
+    }
+    
+    #hero h2 {
+      font-size: 2.5rem;
+    }
+    
+    /* Lookback Credit - Smaller on Mobile */
+    .lookback-logo {
+      width: 100px;
+    }
+    
+    .lookback-text {
+      font-size: 0.9rem;
+    }
+    
+    .lookback-subtext {
+      font-size: 0.75rem;
+    }
+    
+    /* Sections - Adjust to 90% width */
+    section {
+      max-width: 90%;
+    }
+    
+    /* Brick Layer - 3x3 Grid with Offset Pattern */
+    .brick-layer {
+      padding: 20px 10px;
+    }
+    
+    .brick-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      width: 100%;
+      max-width: 90vw;
+      margin: 0 auto;
+    }
+    
+    .brick-layer img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+    
+    /* Offset every other brick for pattern */
+    .brick-layer img:nth-child(3n+2) {
+      transform: translateY(10px);
+    }
+    
+    /* Content Section - Mobile Sizing */
+    .content {
+      padding: 40px 1rem;
+    }
+    
+    .content h2 {
+      font-size: 3rem;
+    }
+    
+    .content h3 {
+      font-size: 1.2rem;
+    }
+    
+    /* Content Images - Stack Vertically */
+    .content-images {
+      flex-direction: column;
+      gap: 15px;
+      max-width: 90vw;
+    }
+    
+    .content img {
+      width: 100% !important;
+      max-width: 90vw !important;
+      height: auto !important;
+    }
+    
+    /* Videos - Full Width Mobile */
+    .content iframe {
+      width: 100%;
+      max-width: 90vw;
+      height: auto;
+      aspect-ratio: 16/9;
+    }
+    
+    /* Video Grid - Single Column */
+    .video-grid {
+      grid-template-columns: 1fr;
+      max-width: 90vw;
+    }
+    
+    /* Songs Grid - 2 Columns on Mobile */
+    .songs-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 90vw;
+    }
+    
+    .song-item {
+      width: 100%;
+    }
+    
+    .song-item img {
+      width: 100%;
+      height: auto;
+      max-width: 150px;
+    }
+    
+    .song-item p {
+      font-size: 0.75rem;
+    }
+    
+    /* Song of Year - Mobile Size */
+    .song-of-year img {
+      width: 300px !important;
+      max-width: 80vw !important;
+    }
+    
+    /* Sky Section */
+    #sky h2 {
+      font-size: 4rem;
+    }
+    
+    /* Timelapse Video - Mobile */
+    .timelapse-video {
+      width: 90%;
+      max-width: 90vw;
+    }
+    
+    /* Instagram Grid - Single Column */
+    .instagram-grid {
+      grid-template-columns: 1fr;
+      max-width: 90vw;
+    }
+    
+    .instagram-container {
+      grid-template-columns: 1fr;
+      max-width: 90vw;
+    }
+  }
+  
+  /* Extra Small Phones */
+  @media (max-width: 480px) {
+    #hero h1 {
+      font-size: 6rem;
+    }
+    
+    #hero h2 {
+      font-size: 2rem;
+    }
+    
+    .content h2 {
+      font-size: 2.5rem;
+    }
+    
+    #sky h2 {
+      font-size: 3rem;
+    }
+    
+    .lookback-logo {
+      width: 80px;
+    }
+    
+    /* Bricks - Smaller Gap on Very Small Screens */
+    .brick-row {
+      gap: 5px;
+    }
+  }
 </style>
 </head>
 <body>
