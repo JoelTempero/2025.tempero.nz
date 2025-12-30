@@ -708,15 +708,18 @@
     
     /* Brick Layer - 3x3 Grid with Offset Pattern */
     .brick-layer {
-      padding: 20px 5%;
+      padding: 15px 5% !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
     }
     
     .brick-row {
       display: grid !important;
       grid-template-columns: repeat(3, 1fr) !important;
-      gap: 6px !important;
+      gap: 5px !important;
       width: 100% !important;
-      margin: 0 auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
     
     .brick-layer img {
@@ -726,11 +729,15 @@
       object-fit: cover !important;
       display: block !important;
       transform: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
     
-    /* Offset middle column for brick pattern */
-    .brick-layer img:nth-child(3n+2) {
-      margin-top: 10px !important;
+    /* Offset middle column bricks (2nd, 5th, 8th) for brick pattern */
+    .brick-layer .brick-row img:nth-child(2),
+    .brick-layer .brick-row img:nth-child(5),
+    .brick-layer .brick-row img:nth-child(8) {
+      margin-top: 8px !important;
     }
     
     /* Disable drop-in animation on mobile */
@@ -1024,68 +1031,78 @@
     <div class="songs-grid">
       <div class="song-item">
         <img src="images/Albums/NothernAttitude.png" alt="Album">
-        <p class="song-name">Northern Attitude</p>
-        <p class="artist-name">Noah Kahan</p>
+        <p class="song-name">Northen Attitude</p>
+        <p class="artist-name">Noah Kahan & Hozier</p>
       </div>
       <div class="song-item">
         <img src="images/Albums/JonBellion.png" alt="Album">
-        <p class="song-name">The Internet</p>
-        <p class="artist-name">Jon Bellion</p>
+        <p class="song-name">WHY</p>
+        <p class="artist-name">John Bellion</p>
       </div>
       <div class="song-item">
         <img src="images/Albums/SilentMovie.png" alt="Album">
         <p class="song-name">Silent Movie</p>
-        <p class="artist-name">Benson Boone</p>
+        <p class="artist-name">Strutman Lane</p>
+      </div>
+      <div class="song-item">
+        <img src="images/Albums/JonBellion.png" alt="Album">
+        <p class="song-name">HOROSCOPE</p>
+        <p class="artist-name">Jon Bellion</p>
       </div>
       <div class="song-item">
         <img src="images/Albums/TOP.png" alt="Album">
-        <p class="song-name">Overcompensate</p>
+        <p class="song-name">Drum Show</p>
         <p class="artist-name">Twenty One Pilots</p>
       </div>
       <div class="song-item">
         <img src="images/Albums/HumanHappens.png" alt="Album">
         <p class="song-name">Human Happens</p>
-        <p class="artist-name">Bailey Zimmerman</p>
+        <p class="artist-name">Magdalena Bay</p>
+      </div>
+      <div class="song-item">
+        <img src="images/Albums/BonIver.png" alt="Album">
+        <p class="song-name">Everything is Peaceful Love</p>
+        <p class="artist-name">Bon Iver</p>
       </div>
       <div class="song-item">
         <img src="images/Albums/Bunnies.png" alt="Album">
         <p class="song-name">Bunnies</p>
-        <p class="artist-name">Hozier</p>
+        <p class="artist-name">Oliver Richman</p>
       </div>
       <div class="song-item">
         <img src="images/Albums/8Bit.png" alt="Album">
-        <p class="song-name">8-Bit Misfits</p>
-        <p class="artist-name">Max and Caleb</p>
+        <p class="song-name">Wii Sports</p>
+        <p class="artist-name">The 8-bit Band</p>
       </div>
       <div class="song-item">
         <img src="images/Albums/AJR.png" alt="Album">
-        <p class="song-name">Maybe Man</p>
+        <p class="song-name">The DJ is Crying for Help</p>
         <p class="artist-name">AJR</p>
       </div>
       <div class="song-item">
         <img src="images/Albums/StardewConcert.png" alt="Album">
-        <p class="song-name">Stardew Valley Concert</p>
-        <p class="artist-name">ConcernedApe</p>
+        <p class="song-name">Season Suite (Summer)</p>
+        <p class="artist-name">Stardew Valley in Concert</p>
       </div>
       <div class="song-item">
         <img src="images/Albums/Noise.png" alt="Album">
-        <p class="song-name">Noise</p>
-        <p class="artist-name">Lewis Capaldi</p>
+        <p class="song-name">To Noise Making</p>
+        <p class="artist-name">Hozier</p>
       </div>
       <div class="song-item">
         <img src="images/Albums/DarrenCriss.png" alt="Album">
-        <p class="song-name">Somewhere</p>
+        <p class="song-name">Dreamed a Dream</p>
         <p class="artist-name">Darren Criss</p>
       </div>
       <div class="song-item">
         <img src="images/Albums/OuterWildsSuite.png" alt="Album">
         <p class="song-name">Outer Wilds Suite</p>
-        <p class="artist-name">Andrew Prahlow</p>
+        <p class="artist-name">StereoNauti</p>
       </div>
       <div class="song-item">
         <img src="images/Albums/DragPath.png" alt="Album">
-        <p class="song-name">The Path I'd Follow Again</p>
-        <p class="artist-name">Dragondance</p>
+        <p class="song-name">Drag Path</p>
+        <p class="artist-name">Twenty One Pilots</p>
       </div>
     </div>
   </section>
@@ -1339,8 +1356,15 @@
 
   <section class="content" data-animate>
     <h2>The Grange Theatre</h2>
-    <div class="content-images">
-      <iframe src="https://www.youtube.com/embed/N3RRLykvds4" allowfullscreen></iframe>
+    <div class="video-grid">
+      <div class="video-item">
+        <h4>Mary Poppins</h4>
+        <iframe src="https://www.youtube.com/embed/sNf9LIyXw4s" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>"In The Heights" Parody</h4>
+        <iframe src="https://www.youtube.com/embed/K8iWSDupx0k" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
     </div>
   </section>
 
