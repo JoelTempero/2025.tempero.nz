@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -615,6 +615,35 @@
     }
   }
   
+  /* Projects Title Styling */
+  .projects-title {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+    line-height: 1 !important;
+  }
+  
+  .projects-title .line1 {
+    font-size: 5.85rem;
+    font-weight: 600;
+  }
+  
+  .projects-title .line2 {
+    font-size: 12rem;
+    font-weight: 800;
+    margin: 1rem 0;
+  }
+  
+  .projects-title .line2::after {
+    content: '+';
+  }
+  
+  .projects-title .line3 {
+    font-size: 5.85rem;
+    font-weight: 600;
+  }
+  
   /* Mobile Responsive Styles */
   @media (max-width: 768px) {
     /* Building - maintain 5% gap on each side (90% width) */
@@ -660,24 +689,30 @@
     }
     
     .brick-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      width: 100%;
-      max-width: 90vw;
-      margin: 0 auto;
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 8px !important;
+      width: 90% !important;
+      max-width: 90vw !important;
+      margin: 0 auto !important;
     }
     
     .brick-layer img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 4/3;
-      object-fit: cover;
+      width: 100% !important;
+      height: auto !important;
+      aspect-ratio: 4/3 !important;
+      object-fit: cover !important;
     }
     
     /* Offset every other brick for pattern */
     .brick-layer img:nth-child(3n+2) {
-      transform: translateY(10px);
+      transform: translateY(15px) scaleY(-1) !important;
+    }
+    
+    /* Override drop-in animation on mobile */
+    .brick-layer.animate img {
+      animation: none !important;
+      opacity: 1 !important;
     }
     
     /* Content Section - Mobile Sizing */
@@ -768,6 +803,19 @@
       grid-template-columns: 1fr;
       max-width: 90vw;
     }
+    
+    /* Projects Title - Mobile */
+    .projects-title .line1 {
+      font-size: 3rem;
+    }
+    
+    .projects-title .line2 {
+      font-size: 8rem;
+    }
+    
+    .projects-title .line3 {
+      font-size: 3rem;
+    }
   }
   
   /* Extra Small Phones */
@@ -795,6 +843,19 @@
     /* Bricks - Smaller Gap on Very Small Screens */
     .brick-row {
       gap: 5px;
+    }
+    
+    /* Projects Title - Extra Small */
+    .projects-title .line1 {
+      font-size: 2.5rem;
+    }
+    
+    .projects-title .line2 {
+      font-size: 6rem;
+    }
+    
+    .projects-title .line3 {
+      font-size: 2.5rem;
     }
   }
 </style>
@@ -1100,23 +1161,27 @@
     </div>
   </section>
   
-  <section class="content" data-animate>
-    <h2>Tempero Creative</h2>
+  <section class="content tempero-creative" data-animate>
+    <h2 class="projects-title">
+      <span class="line1">We completed</span>
+      <span class="line2 counter" data-target="50">0</span>
+      <span class="line3">Projects!</span>
+    </h2>
     <div class="video-grid">
       <div class="video-item">
         <h4>Project Link</h4>
         <iframe src="https://www.youtube.com/embed/IKUMRVsxjIQ" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
       <div class="video-item">
-        <h4>My Favourite Photo of my Wife</h4>
+        <h4>Favourite Photo of my Wife</h4>
         <iframe src="https://www.youtube.com/embed/LS6JOx-M6ho" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
       <div class="video-item">
-        <h4>What if Everyone Got A Chair?</h4>
+        <h4>What if everyone got a chair?</h4>
         <iframe src="https://www.youtube.com/embed/tanyD_yF5_s" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
       <div class="video-item">
-        <h4>Rating Disneyland Rides</h4>
+        <h4>Rating Disney Rides</h4>
         <iframe src="https://www.youtube.com/embed/-xzE6TPqpt4" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
       <div class="video-item">
@@ -1124,8 +1189,32 @@
         <iframe src="https://player.vimeo.com/video/1077797233" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
       <div class="video-item">
-        <h4>Outer Wilds - Race To The Eye</h4>
+        <h4>OuterWilds Race to the Eye</h4>
         <iframe src="https://www.youtube.com/embed/SJBzWBqrzEs" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>VMC</h4>
+        <iframe src="https://player.vimeo.com/video/1132286636" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>Colour Your Day</h4>
+        <iframe src="https://player.vimeo.com/video/1074992987" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>MGS Formal</h4>
+        <iframe src="https://www.youtube.com/embed/y8U5uT1ktO8" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>Eastercamp</h4>
+        <iframe src="https://www.youtube.com/embed/OOtdVa7SBho" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>Human, Just Like Me</h4>
+        <iframe src="https://www.youtube.com/embed/VTfhxOUJrJ4" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+      </div>
+      <div class="video-item">
+        <h4>Good News Project</h4>
+        <iframe src="https://www.youtube.com/embed/nWYrPgQrao0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
     </div>
   </section>
@@ -1162,44 +1251,6 @@
       <img src="images/brickimages/brick106.jpg" alt="Memory">
       <img src="images/brickimages/brick107.jpg" alt="Memory">
       <img src="images/brickimages/brick108.jpeg" alt="Memory">
-    </div>
-  </section>
-  
-  <section class="content" data-animate>
-    <h2>Technicolour.nz</h2>
-    <div class="video-grid">
-      <div class="video-item">
-        <h4>VMC</h4>
-        <iframe src="https://player.vimeo.com/video/1132286636" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <h4>Colour Your Day</h4>
-        <iframe src="https://player.vimeo.com/video/1074992987" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <h4>Sea Sounds</h4>
-        <iframe src="https://www.youtube.com/embed/kQZbWIhQPxE" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <h4>Eastercamp</h4>
-        <iframe src="https://www.youtube.com/embed/OOtdVa7SBho" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <h4>MGS Formal</h4>
-        <iframe src="https://www.youtube.com/embed/y8U5uT1ktO8" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <h4>Good News Project</h4>
-        <iframe src="https://www.youtube.com/embed/nWYrPgQrao0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <h4>Kath Bee I Know You</h4>
-        <iframe src="https://www.youtube.com/embed/y8U5uT1ktO8" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
-      <div class="video-item">
-        <h4>LFBIT</h4>
-        <iframe src="https://www.youtube.com/embed/nWYrPgQrao0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
-      </div>
     </div>
   </section>
   
@@ -1288,13 +1339,6 @@
     </div>
   </section>
   
-  <section class="content" data-animate>
-    <h2>Sidon-gram!</h2>
-    <div class="content-images">
-      <img src="https://picsum.photos/800/600?random=300" alt="Sidon-gram Placeholder">
-    </div>
-  </section>
-  
   <section class="brick-layer" data-animate>
     <div class="brick-row">
       <img src="images/brickimages/brick154.jpg" alt="Memory">
@@ -1331,7 +1375,7 @@
   </section>
   
   <section class="content" data-animate>
-    <h2>New Kitchen!</h2>
+    <h2>Renovations!</h2>
     <div class="content-images">
       <img src="https://picsum.photos/400/300?random=230" alt="New Kitchen">
     </div>
@@ -1433,6 +1477,38 @@ function scrollPage() {
 
 scrollWrapper.addEventListener('scroll', updateColors);
 updateColors();
+
+// Counter animation for "50+" 
+const counterElement = document.querySelector('.counter');
+let hasAnimated = false;
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !hasAnimated) {
+      hasAnimated = true;
+      const target = parseInt(entry.target.getAttribute('data-target'));
+      const duration = 2000; // 2 seconds
+      const increment = target / (duration / 16); // 60fps
+      let current = 0;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          entry.target.textContent = target;
+          clearInterval(timer);
+        } else {
+          entry.target.textContent = Math.floor(current);
+        }
+      }, 16);
+    }
+  });
+}, {
+  threshold: 0.5
+});
+
+if (counterElement) {
+  counterObserver.observe(counterElement);
+}
 
 // Initialize Instagram embeds when they're loaded
 if (window.instgrm) {
