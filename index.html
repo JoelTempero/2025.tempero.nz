@@ -368,6 +368,55 @@
     max-width: 90% !important;
   }
   
+  /* Next Year Grid - 2 columns like song of year size */
+  .next-year-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 500px);
+    gap: 30px;
+    max-width: calc(80vw - 40px);
+    margin: 0 auto;
+    justify-content: center;
+  }
+  
+  .next-year-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .next-year-item img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+  
+  .next-year-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+  }
+  
+  .next-year-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin: 8px 0 0 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+  }
+  
+  /* Content Videos */
+  .content-video {
+    width: 80%;
+    max-width: 1200px;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+  }
+  
   .video-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -666,16 +715,13 @@
   
   /* Mobile Responsive Styles */
   @media (max-width: 768px) {
-    /* Building - maintain 5% gap on each side (90% width) */
+    /* Remove building color on mobile - just sky background */
     .building {
-      left: 5% !important;
-      width: 90% !important;
+      display: none !important;
     }
     
     #sky .building-top {
-      width: 90vw !important;
-      left: 5vw !important;
-      transform: none !important;
+      display: none !important;
     }
     
     /* Hero Section - Mobile Text Sizes */
@@ -700,7 +746,7 @@
       font-size: 0.75rem;
     }
     
-    /* Sections - 100% width (already inside 90% building) */
+    /* Sections - Full width on mobile (no building container) */
     section {
       max-width: 100% !important;
       width: 100% !important;
@@ -836,6 +882,34 @@
     .song-of-year img {
       width: 300px !important;
       max-width: 80vw !important;
+    }
+    
+    /* Next Year Grid - 2 Columns on Mobile */
+    .next-year-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 15px !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+    
+    .next-year-item img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1/1;
+    }
+    
+    .next-year-title {
+      font-size: 1.2rem;
+    }
+    
+    .next-year-subtitle {
+      font-size: 0.9rem;
+    }
+    
+    /* Content Videos - Mobile */
+    .content-video {
+      width: 100% !important;
+      max-width: 100% !important;
     }
     
     /* Sky Section */
@@ -1222,7 +1296,7 @@
   <section class="content" data-animate>
     <h2>Entertained by entertainers</h2>
     <div class="content-images">
-      <img src="https://picsum.photos/800/600?random=301" alt="Entertained by entertainers">
+      <img src="images/Content/entertainers.png" alt="Entertained by entertainers">
     </div>
   </section>
 
@@ -1424,7 +1498,7 @@
   <section class="content" data-animate>
     <h2>Sidon-Gram</h2>
     <div class="content-images">
-      <img src="https://picsum.photos/800/600?random=300" alt="Sidon-gram Placeholder">
+      <img src="images/Content/sidongram.png" alt="Sidon-gram">
     </div>
   </section>
 
@@ -1466,7 +1540,9 @@
   <section class="content" data-animate>
     <h2>Renovations!</h2>
     <div class="content-images">
-      <img src="https://picsum.photos/800/600?random=220" alt="Renovations">
+      <video autoplay loop muted playsinline class="content-video">
+        <source src="images/BuildingTimelapse.mp4" type="video/mp4">
+      </video>
     </div>
   </section>
 
@@ -1484,10 +1560,26 @@
     </div>
   </section>
 
-  <section class="content" data-animate>
+  <section class="content next-year-section" data-animate>
     <h2>Next year we look forward to</h2>
-    <div class="content-images">
-      <img src="https://picsum.photos/800/600?random=230" alt="Looking Forward">
+    <div class="next-year-grid">
+      <div class="next-year-item">
+        <img src="images/Content/renos.jpg" alt="Finishing Renos">
+        <p class="next-year-title">Finishing Renos</p>
+      </div>
+      <div class="next-year-item">
+        <img src="images/Content/expanding.jpg" alt="Expanding Abilities">
+        <p class="next-year-title">Expanding Abilities</p>
+      </div>
+      <div class="next-year-item">
+        <img src="images/Content/healthyhabits.jpg" alt="Healthy Habits">
+        <p class="next-year-title">Healthy Habits</p>
+        <p class="next-year-subtitle">with custom made apps!</p>
+      </div>
+      <div class="next-year-item">
+        <img src="images/Content/chillingout.jpg" alt="Chilling Out">
+        <p class="next-year-title">Chilling Out</p>
+      </div>
     </div>
   </section>
 
