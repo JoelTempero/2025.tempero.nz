@@ -622,6 +622,19 @@
     align-items: center !important;
     gap: 0 !important;
     line-height: 1 !important;
+    opacity: 0;
+  }
+  
+  .tempero-creative.animate .projects-title {
+    animation: fadeIn 0.8s ease-in forwards;
+  }
+  
+  .tempero-creative .video-grid {
+    opacity: 0;
+  }
+  
+  .tempero-creative.animate .video-grid {
+    animation: fadeIn 0.8s ease-in 0.3s forwards;
   }
   
   .projects-title .line1 {
@@ -648,12 +661,14 @@
   @media (max-width: 768px) {
     /* Building - maintain 5% gap on each side (90% width) */
     .building {
-      left: 5%;
-      width: 90%;
+      left: 5% !important;
+      width: 90% !important;
     }
     
     #sky .building-top {
-      width: 90vw;
+      width: 90vw !important;
+      left: 5vw !important;
+      transform: none !important;
     }
     
     /* Hero Section - Mobile Text Sizes */
@@ -678,9 +693,10 @@
       font-size: 0.75rem;
     }
     
-    /* Sections - Adjust to 90% width */
+    /* Sections - 100% width (already inside 90% building) */
     section {
-      max-width: 90%;
+      max-width: 100% !important;
+      width: 100% !important;
     }
     
     /* Brick Layer - 3x3 Grid with Offset Pattern */
@@ -695,24 +711,34 @@
       width: 90% !important;
       max-width: 90vw !important;
       margin: 0 auto !important;
+      flex-wrap: nowrap !important;
     }
     
     .brick-layer img {
       width: 100% !important;
-      height: auto !important;
-      aspect-ratio: 4/3 !important;
+      height: 0 !important;
+      padding-bottom: 75% !important; /* 4:3 aspect ratio */
       object-fit: cover !important;
+      display: block !important;
+      position: relative !important;
     }
     
-    /* Offset every other brick for pattern */
+    /* Offset middle column for brick pattern - keep scaleY */
     .brick-layer img:nth-child(3n+2) {
-      transform: translateY(15px) scaleY(-1) !important;
+      margin-top: 15px;
     }
     
-    /* Override drop-in animation on mobile */
+    /* Disable drop-in animation on mobile, keep scaleY transform */
     .brick-layer.animate img {
       animation: none !important;
       opacity: 1 !important;
+      transform: scaleY(-1) !important;
+    }
+    
+    /* Middle column with offset AND scaleY */
+    .brick-layer.animate img:nth-child(3n+2) {
+      transform: scaleY(-1) !important;
+      margin-top: 15px !important;
     }
     
     /* Content Section - Mobile Sizing */
@@ -728,38 +754,41 @@
       font-size: 1.2rem;
     }
     
-    /* Content Images - Stack Vertically */
+    /* Content Images - Stack Vertically, Stay Within Building */
     .content-images {
       flex-direction: column;
       gap: 15px;
-      max-width: 90vw;
+      max-width: 100% !important;
+      width: 100% !important;
     }
     
     .content img {
       width: 100% !important;
-      max-width: 90vw !important;
+      max-width: 100% !important;
       height: auto !important;
     }
     
-    /* Videos - Full Width Mobile */
+    /* Videos - Full Width Mobile, Within Building */
     .content iframe {
-      width: 100%;
-      max-width: 90vw;
+      width: 100% !important;
+      max-width: 100% !important;
       height: auto;
       aspect-ratio: 16/9;
     }
     
-    /* Video Grid - Single Column */
+    /* Video Grid - Single Column, Within Building */
     .video-grid {
       grid-template-columns: 1fr;
-      max-width: 90vw;
+      max-width: 100% !important;
+      width: 100% !important;
     }
     
-    /* Songs Grid - 2 Columns on Mobile */
+    /* Songs Grid - 3 Columns on Mobile, Within Building */
     .songs-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      max-width: 90vw;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 8px !important;
+      max-width: 100% !important;
+      width: 100% !important;
     }
     
     .song-item {
@@ -769,11 +798,19 @@
     .song-item img {
       width: 100%;
       height: auto;
-      max-width: 150px;
+      max-width: 100%;
     }
     
     .song-item p {
-      font-size: 0.75rem;
+      font-size: 0.6rem;
+    }
+    
+    .song-item .song-name {
+      font-size: 0.65rem;
+    }
+    
+    .song-item .artist-name {
+      font-size: 0.55rem;
     }
     
     /* Song of Year - Mobile Size */
@@ -787,21 +824,23 @@
       font-size: 4rem;
     }
     
-    /* Timelapse Video - Mobile */
+    /* Timelapse Video - Mobile, Within Building */
     .timelapse-video {
-      width: 90%;
-      max-width: 90vw;
+      width: 100% !important;
+      max-width: 100% !important;
     }
     
-    /* Instagram Grid - Single Column */
+    /* Instagram Grid - Single Column, Within Building */
     .instagram-grid {
       grid-template-columns: 1fr;
-      max-width: 90vw;
+      max-width: 100% !important;
+      width: 100% !important;
     }
     
     .instagram-container {
       grid-template-columns: 1fr;
-      max-width: 90vw;
+      max-width: 100% !important;
+      width: 100% !important;
     }
     
     /* Projects Title - Mobile */
@@ -1210,7 +1249,7 @@
       </div>
       <div class="video-item">
         <h4>Human, Just Like Me</h4>
-        <iframe src="https://www.youtube.com/embed/VTfhxOUJrJ4" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+        <iframe src="https://www.youtube.com/embed/9ue-p2xbjZE" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
       </div>
       <div class="video-item">
         <h4>Good News Project</h4>
@@ -1251,11 +1290,6 @@
       <img src="images/brickimages/brick106.jpg" alt="Memory">
       <img src="images/brickimages/brick107.jpg" alt="Memory">
       <img src="images/brickimages/brick108.jpeg" alt="Memory">
-    </div>
-  </section>
-  
-  <section class="brick-layer" data-animate>
-    <div class="brick-row">
       <img src="images/brickimages/brick109.jpg" alt="Memory">
       <img src="images/brickimages/brick110.png" alt="Memory">
       <img src="images/brickimages/brick111.jpg" alt="Memory">
@@ -1336,11 +1370,15 @@
       <img src="images/brickimages/brick142.jpg" alt="Memory">
       <img src="images/brickimages/brick143.png" alt="Memory">
       <img src="images/brickimages/brick144.png" alt="Memory">
-    </div>
-  </section>
-  
-  <section class="brick-layer" data-animate>
-    <div class="brick-row">
+      <img src="images/brickimages/brick145.jpeg" alt="Memory">
+      <img src="images/brickimages/brick146.jpg" alt="Memory">
+      <img src="images/brickimages/brick147.jpg" alt="Memory">
+      <img src="images/brickimages/brick148.jpg" alt="Memory">
+      <img src="images/brickimages/brick149.jpeg" alt="Memory">
+      <img src="images/brickimages/brick150.jpg" alt="Memory">
+      <img src="images/brickimages/brick151.jpg" alt="Memory">
+      <img src="images/brickimages/brick152.jpg" alt="Memory">
+      <img src="images/brickimages/brick153.jpg" alt="Memory">
       <img src="images/brickimages/brick154.jpg" alt="Memory">
       <img src="images/brickimages/brick155.jpeg" alt="Memory">
       <img src="images/brickimages/brick156.jpg" alt="Memory">
