@@ -711,6 +711,11 @@
       padding: 15px 5% !important;
       width: 100% !important;
       box-sizing: border-box !important;
+      display: block !important;
+    }
+    
+    .brick-layer::before {
+      display: none !important;
     }
     
     .brick-row {
@@ -718,6 +723,7 @@
       grid-template-columns: repeat(3, 1fr) !important;
       gap: 5px !important;
       width: 100% !important;
+      max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
     }
@@ -731,6 +737,8 @@
       transform: none !important;
       margin: 0 !important;
       padding: 0 !important;
+      grid-column: auto !important;
+      grid-row: auto !important;
     }
     
     /* Offset middle column bricks (2nd, 5th, 8th) for brick pattern */
@@ -927,6 +935,11 @@
     </a>
   </section>
   
+  <section class="timelapse-section">
+    <video autoplay loop muted playsinline class="timelapse-video">
+      <source src="images/LegoTimelapse.mp4" type="video/mp4">
+    </video>
+  </section>
 
   <section class="brick-layer" data-animate>
     <div class="brick-row">
