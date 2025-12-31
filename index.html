@@ -51,6 +51,30 @@
     color: white;
     font-size: 1.5rem;
     font-weight: 300;
+    margin: 0 0 2rem 0;
+  }
+  
+  .loader-bar-container {
+    width: 300px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  
+  .loader-bar {
+    width: 0%;
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    transition: width 0.1s linear;
+  }
+  
+  .loader-percentage {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
     margin: 0;
   }
   
@@ -676,10 +700,10 @@
   
   .roof-couple {
     position: fixed;
-    bottom: 40px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    height: 250px;
+    height: 500px;
     width: auto;
     z-index: 11;
     opacity: 0;
@@ -697,6 +721,10 @@
     z-index: 5;
   }
   
+  .mobile-break {
+    display: none;
+  }
+  
   /* Previous Recaps Section */
   .previous-recaps {
     position: relative;
@@ -705,7 +733,7 @@
   }
   
   .recap-lookback-logo {
-    width: 80px;
+    width: 160px;
     height: auto;
     margin-bottom: 1rem;
   }
@@ -743,7 +771,7 @@
   
   /* Grange Theatre Logo */
   .grange-logo {
-    width: 450px;
+    width: 500px;
     max-width: 90%;
     height: auto;
     margin-bottom: 2rem;
@@ -751,7 +779,7 @@
   
   /* Tempero Creative Logo */
   .tempero-logo {
-    width: 300px;
+    width: 500px;
     max-width: 90%;
     height: auto;
     margin-bottom: 2rem;
@@ -820,7 +848,7 @@
   }
   
   #sky.animate .sky-clouds {
-    animation: fadeIn 1.5s ease-out 0.5s forwards, cloudDrift 120s linear 2s infinite;
+    animation: fadeIn 1.5s ease-out 0.5s forwards, cloudDrift 80s linear 2s infinite;
   }
   
   @keyframes cloudDrift {
@@ -1141,6 +1169,10 @@
       order: 1;
     }
     
+    .mobile-break {
+      display: inline;
+    }
+    
     .previous-recaps {
       order: 2;
       margin-bottom: 2rem;
@@ -1151,14 +1183,14 @@
     }
     
     .recap-buttons {
-      flex-direction: column;
-      gap: 15px;
-      padding: 0 20px;
+      flex-direction: row;
+      gap: 10px;
+      padding: 0 10px;
     }
     
     .recap-button {
-      font-size: 1.5rem;
-      padding: 12px 30px;
+      font-size: 1.1rem;
+      padding: 10px 20px;
     }
     
     /* Instagram Button - Mobile */
@@ -1169,23 +1201,35 @@
     }
     
     /* Logo Sizing - Mobile */
+    .grange-theatre {
+      display: flex;
+      flex-direction: column;
+    }
+    
     .grange-logo {
-      width: 90%;
-      max-width: 300px;
+      width: 250px;
+      max-width: 80%;
+      order: 2;
+      margin-top: 2rem;
+      margin-bottom: 0;
+    }
+    
+    .grange-theatre .video-grid {
+      order: 1;
     }
     
     .tempero-logo {
-      width: 80%;
-      max-width: 200px;
+      width: 166px;
+      max-width: 60%;
     }
     
     .recap-lookback-logo {
-      width: 60px;
+      width: 120px;
     }
     
     .roof-couple {
-      height: 150px;
-      bottom: 30px;
+      height: 600px;
+      bottom: 20px;
     }
     
     /* Timelapse Video - Mobile, Within Building */
@@ -1268,6 +1312,10 @@
 <div class="loader-screen" id="loaderScreen">
   <img src="images/Logos/Lookback01.png" alt="Lookback Logo" class="loader-logo">
   <p class="loader-text">Loading Lookback</p>
+  <div class="loader-bar-container">
+    <div class="loader-bar" id="loaderBar"></div>
+  </div>
+  <p class="loader-percentage" id="loaderPercentage">0%</p>
 </div>
 
 <!-- Mobile Desktop Recommendation Popup -->
@@ -1900,7 +1948,7 @@
         <a href="https://2024.tempero.nz" target="_blank" class="recap-button">2024</a>
       </div>
     </div>
-    <h2>See you next year!</h2>
+    <h2>See you <span class="mobile-break"><br></span>next year!</h2>
   </section>
 </div>
 
@@ -2000,8 +2048,26 @@ if (window.instgrm) {
   });
 }
 
-// Loader Screen - Hide after 3 seconds
+// Loader Screen - Animate progress bar
 const loaderScreen = document.getElementById('loaderScreen');
+const loaderBar = document.getElementById('loaderBar');
+const loaderPercentage = document.getElementById('loaderPercentage');
+
+let progress = 0;
+const duration = 3000; // 3 seconds
+const interval = 30; // Update every 30ms
+const increment = (100 / (duration / interval));
+
+const progressInterval = setInterval(() => {
+  progress += increment;
+  if (progress >= 100) {
+    progress = 100;
+    clearInterval(progressInterval);
+  }
+  loaderBar.style.width = progress + '%';
+  loaderPercentage.textContent = Math.floor(progress) + '%';
+}, interval);
+
 setTimeout(() => {
   loaderScreen.classList.add('hidden');
   
