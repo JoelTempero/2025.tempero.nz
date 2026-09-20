@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tempero-nz"
+  },
+  "targets": {
+    "tempero-nz": {
+      "hosting": {
+        "recap-2025": [
+          "tempero-recap-2025"
+        ]
+      }
+    }
+  }
+}
