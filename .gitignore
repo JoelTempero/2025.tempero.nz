@@ -16,3 +16,6 @@ SITE/site.zip
 [Cc][Oo][Nn]
 [Pp][Rr][Nn]
 [Aa][Uu][Xx]
+
+# Firebase deploy cache
+.firebase/
